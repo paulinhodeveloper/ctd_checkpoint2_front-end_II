@@ -1,57 +1,57 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do App</title>
+    <script src="../js/signup.js" defer></script>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>To-Do App</title>
+    <!-- ---------------- estilos compartilhados entre login e signup ---------------- -->
+    <link rel="stylesheet" href="../styles/acesso.css" />
+  </head>
 
-  <!-- ---------------- estilos compartilhados entre login e signup ---------------- -->
-  <link rel="stylesheet" href="../styles/acesso.css">
-  
-</head>
-
-<body>
-
-  <div class="left">
-    <img src="./assets/pessoa-signup.png" alt="">
-  </div>
-  <div class="right">
-    <form>
-      <div class="form-header">
-        <p>To-Do App</p>
-      </div>
-
-      <label>
-        Nome:
-        <input type="text">
-      </label>
-      <label>
-        Sobrenome:
-        <input type="text">
-      </label>
-      <label>
-        Email:
-        <input type="email">
-      </label>
-      <label>
-        Senha:
-        <input type="password">
-      </label>
-      <label>
-        Repetir senha:
-        <input type="password">
-      </label>
-
-      <button>Criar conta</button>
-
-    </form>
-    <div class="ingressar">
-      <a href="index.html">Já possui conta? Acesse aqui</a>
+  <body>
+    <div class="left">
+      <img src="../assets/pessoa-signup.png" alt="" />
     </div>
-  </div>
+    <div class="right">
+      <form>
+        <div class="form-header">
+          <p>To-Do App</p>
+        </div>
 
-</body>
+        <label>
+          Nome:
+          <input type="text" id="inputFirstName" required />
+          <small id="inputFirstName-validation"></small>
+        </label>
+        <label>
+          Sobrenome:
+          <input type="text" id="inputLastName" required />
+          <small id="inputLastName-validation"></small>
+        </label>
+        <label>
+          Email:
+          <input type="email" id="inputEmail" required />
+          <small id="inputEmail-validation"></small>
+        </label>
+        <label>
+          Senha:
+          <input type="password" id="inputPassword" required />
+          <small id="inputPassword-validation"></small>
+        </label>
+        <label>
+          Repetir senha:
+          <input type="password" id="inputConfirmPassword" required />
+          <small id="inputConfirmPassword-validation"></small>
+        </label>
 
+        <button type="submit" disabled>Criar conta</button>
+      </form>
+      <div class="ingressar">
+        <a href="../index.html">Já possui conta? Acesse aqui</a>
+      </div>
+    </div>
+  </body>
 </html>
