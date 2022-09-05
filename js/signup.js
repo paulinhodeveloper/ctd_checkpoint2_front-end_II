@@ -140,5 +140,6 @@ submitBtn.addEventListener('click', e => {
     console.log(firstNameValue);
     console.log(lastNameValue);
     form.reset();
+    checkFormValidity();
     alert('Sucesso!');
 });
