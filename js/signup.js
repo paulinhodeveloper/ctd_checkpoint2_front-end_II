@@ -139,6 +139,6 @@ submitBtn.addEventListener('click', e => {
     let lastNameValue = inputLastName.value.replace(/^\s+|\s+$|\s+(?=\s)/g, "");
     console.log(firstNameValue);
     console.log(lastNameValue);
-
+    form.reset();
     alert('Sucesso!');
 });
