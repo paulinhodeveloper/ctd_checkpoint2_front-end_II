@@ -62,5 +62,6 @@ inputValidation(inputPassword, passwordId, passwordValidation, passwordRegEx);
 // Enviar formulário
 submitBtn.addEventListener('click', e => {
     e.preventDefault();
+    form.reset();
     alert('Sucesso!');
 });

@@ -74,7 +74,7 @@ const inputValidation = (element, validation, validText, regEx) => {
 //Função para verificar se as senhas são iguais
 const passwordConfirmValidation = () => {
 
-    // Verificar se as senhas são iguais ao digitar/focar no campo de repetir senha
+    // Verificar se as senhas são iguais ao digitar no campo de repetir senha
     const repeatPasswordValidation = () => {
         if (inputPassword.value == inputConfirmPassword.value) {
             inputConfirmPassword.setCustomValidity('');
@@ -92,7 +92,7 @@ const passwordConfirmValidation = () => {
         checkFormValidity();
     };
 
-    ['focus', 'keyup'].forEach(evt =>
+    ['keyup'].forEach(evt =>
         inputConfirmPassword.addEventListener(evt, repeatPasswordValidation, false)
     );
 
@@ -139,6 +139,6 @@ submitBtn.addEventListener('click', e => {
     let lastNameValue = inputLastName.value.replace(/^\s+|\s+$|\s+(?=\s)/g, "");
     console.log(firstNameValue);
     console.log(lastNameValue);
-
+    form.reset();
     alert('Sucesso!');
 });
