@@ -1,79 +1,88 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ----------------------------- estilos CSS ----------------------------- -->
+    <link rel="stylesheet" href="../assets/styles/tarefas.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
-  <!-- ----------------------------- estilos CSS ----------------------------- -->
-  <link rel="stylesheet" href="../styles/tarefas.css">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- ------------------- Biblioteca de icones - Fontawesome -------------------- -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
-  <!-- ------------------- Biblioteca de icones - Fontawesome -------------------- -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Task Done</title>
+  </head>
 
-  <title>To-Do App</title>
-</head>
-
-<body>
-  <header>
-    <nav>
-      <a href="#">Tarefas</a>
-    </nav>
-
-    <div class="user-info">
-      <p>Nome usuário</p>
-      <div class="user-image"></div>
-      <p id="closeApp">Finalizar sessão</i>
-      </p>
-    </div>
-  </header>
-
-
-  <form class="nova-tarefa">
-    <div class="not-done "></div>
-    <input id="novaTarefa" type="text" placeholder="Nova tarefa">
-    <button type="submit">
-      <img src="../assets/plus.png" alt="Adicionar uma nova tarefa">
-    </button>
-  </form>
-
-
-  <ul class="tarefas-pendentes">
-    <div>
-      <li class="tarefa">
-        <div class="not-done"></div>
-        <div class="descricao">
-          <p class="nome">Nova tarefa</p>
-          <p class="timestamp">Criada em: 15/07/21</p>
+  <body>
+    <main>
+      <div class="left-sidebar">
+        <div class="user-info">
+          <div class="user-picture">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+              <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+              <path
+                d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0S96 57.3 96 128s57.3 128 128 128zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"
+              />
+            </svg>
+          </div>
+          <div class="user-login">Braulio Portela</div>
         </div>
-      </li>
-      <li class="tarefa">
-        <div class="not-done"></div>
-        <div class="descricao">
-          <p class="nome">Nova tarefa</p>
-          <p class="timestamp">Criada em: 15/07/21</p>
+        <nav>
+          <ul>
+            <a href="#">
+              <li>Tarefas</li>
+            </a>
+          </ul>
+        </nav>
+        <div class="add-task">
+          <form class="new-task">
+            <textarea
+              id="newTask"
+              maxlength="96"
+              placeholder="Nova tarefa"
+            ></textarea>
+            <button type="submit" class="submit-button">Adiconar Tarefa</button>
+          </form>
         </div>
-      </li>
-      <li class="tarefa">
-        <div class="not-done"></div>
-        <div class="descricao">
-          <p class="nome">Nova tarefa</p>
-          <p class="timestamp">Criada em: 15/07/21</p>
+      </div>
+      <div class="container">
+        <div class="task-board-header">Quadro de Tarefas</div>
+        <div class="task-board">
+          <div class="task-container amarelo">Estudar para FrontEnd</div>
+          <div class="task-container azul">Passear com o cachorro</div>
+          <div class="task-container magenta">Fazer compras</div>
+          <div class="task-container verde">Fazer faxina na casa</div>
+          <div class="task-container magenta">Fazer compras</div>
+          <div class="task-container rosa">Troca o óleo do carro</div>
+          <div class="task-container laranja">Estudar para Infra</div>
+          <div class="task-container amarelo">Estudar para FrontEnd</div>
+          <div class="task-container azul">Passear com o cachorro</div>
+          <div class="task-container rosa">Troca o óleo do carro</div>
+          <div class="task-container verde">Fazer faxina na casa</div>
+          <div class="task-container laranja">Estudar para Infra</div>
         </div>
-      </li>
+      </div>
+      <div class="right-sidebar">
+        <div class="task-board-header">Tarefas Concluídas</div>
+        <div class="task-board">
+          <div class="task-container magenta">Fazer compras</div>
+          <div class="task-container amarelo">Estudar para FrontEnd</div>
+          <div class="task-container verde">Fazer faxina na casa</div>
+          <div class="task-container amarelo">Estudar para FrontEnd</div>
+          <div class="task-container azul">Passear com o cachorro</div>
+          <div class="task-container laranja">Estudar para Infra</div>
+          <div class="task-container azul">Passear com o cachorro</div>
 
-    </div>
-  </ul>
-
-  <h2 class="titulo-terminadas">Tarefas terminadas</h2>
-  <ul class="tarefas-terminadas">
-
-  </ul>
-
-</body>
-
+        </div>
+      </div>
+    </main>
+  </body>
 </html>
