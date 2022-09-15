@@ -9,12 +9,12 @@ const gi = e => document.getElementById(e);
 // Variáveis do campo e-mail
 const inputEmail = gi('inputEmail');
 const emailRegEx = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-const emailValidation = 'Email inválido.';
+const emailValidation = 'Email inválido';
 
 // Variáveis do campo senha
 const inputPassword = gi('inputPassword');
 const passwordRegEx = /^(?!.*\s)(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[~`!@#$%^&*()--+={}\[\]|\\:;"'<>,.?/_₹]).{10,16}$/;
-const passwordValidation = 'Verifique o Campo (1 letra maiúscula, 1 caractere especial e no mínimo 10 dígitos).';
+const passwordValidation = 'Verifique o Campo (1 letra maiúscula, 1 caractere especial e no mínimo 10 dígitos)';
 
 // Variáveis do elemento button e do form
 const submitBtn = qs('button');
@@ -29,5 +29,6 @@ submitBtn.addEventListener('click', e => {
     e.preventDefault();
     form.reset();
     checkFormValidity();
-    alert('Sucesso!');
+    // alert('Sucesso!');
+    window.location = './pages/tarefas.html';
 });
