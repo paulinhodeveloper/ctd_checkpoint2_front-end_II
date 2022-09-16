@@ -41,10 +41,11 @@ main {
     rgba(10, 116, 173, 1) 100%
   );
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   padding: 15px;
   box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
+  justify-content: center;
+  gap: 20px;
 }
 
 .user-picture svg {
@@ -58,32 +59,7 @@ main {
   opacity: 0.5;
 }
 
-.user-picture::after {
-  content: '';
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3C!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --%3E%3Cpath d='M160 96c17.7 0 32-14.3 32-32s-14.3-32-32-32H96C43 32 0 75 0 128V384c0 53 43 96 96 96h64c17.7 0 32-14.3 32-32s-14.3-32-32-32H96c-17.7 0-32-14.3-32-32l0-256c0-17.7 14.3-32 32-32h64zM504.5 273.4c4.8-4.5 7.5-10.8 7.5-17.4s-2.7-12.9-7.5-17.4l-144-136c-7-6.6-17.2-8.4-26-4.6s-14.5 12.5-14.5 22v72H192c-17.7 0-32 14.3-32 32l0 64c0 17.7 14.3 32 32 32H320v72c0 9.6 5.7 18.2 14.5 22s19 2 26-4.6l144-136z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  float: right;
-  width: 20px;
-  height: 20px;
-  opacity: 0.3;
-  margin-top: -10px;
-  cursor: pointer;
-  position: absolute;
-  left: 85%;
-}
-
-.user-picture::before {
-  content: 'Sair';
-  float: right;
-  font-size: 0.8em;
-  position: absolute;
-  left: 85%;
-  margin-top: 10px;
-  cursor: pointer;
-  color: rgba(0, 0, 0, 0.3);
-}
-
-.user-login {
+#userLogin {
   color: #fff;
   text-transform: uppercase;
   font-size: 0.75em;
@@ -92,6 +68,32 @@ main {
   padding: 0.3em 1em;
   border-radius: 10px;
   word-break: break-word;
+}
+
+#logout {
+  font-size: 1em;
+  opacity: 0.3;
+  cursor: pointer;
+}
+
+#logout svg {
+  width: 20px;
+  right: 6%;
+  top: 1%;
+  position: absolute;
+}
+
+#logout p {
+  position: absolute;
+  top: 3%;
+  right: 5%;
+}
+
+.user-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 nav {
@@ -144,7 +146,7 @@ nav a {
   height: 100%;
 }
 
-.new-task textarea {
+.new-task #newTask {
   width: 95%;
   height: 95%;
   margin: auto;
@@ -160,7 +162,7 @@ input:focus {
   outline: none;
 }
 
-.submit-button {
+#createTaskButton {
   width: 150px;
   padding: 8px;
   color: #fff;
@@ -177,7 +179,7 @@ input:focus {
   box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
 }
 
-.submit-button:hover {
+#createTaskButton:hover {
   filter: brightness(1.03);
 }
 
@@ -188,16 +190,14 @@ input:focus {
   justify-content: center;
   align-items: center;
   display: flex;
-  /* height: 90%; */
-  /* width: 98%; */
   background: rgb(10, 116, 173);
-  /* border: 1px solid black; */
   overflow-y: auto;
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
 }
 
-.task-board {
+#taskBoard {
   height: 90%;
   overflow-y: auto;
   display: flex;
@@ -208,7 +208,6 @@ input:focus {
 }
 
 .task-board-header {
-  /* background: red; */
   font-size: 2em;
   text-transform: uppercase;
   font-weight: bold;
@@ -220,7 +219,7 @@ input:focus {
   border-top-right-radius: 15px;
   background: rgb(29, 147, 209);
   width: 40%;
-
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   display: flex;
@@ -229,20 +228,21 @@ input:focus {
   flex-wrap: wrap;
 }
 
-/* Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
   width: 1px;
 }
 
-.task-container {
-  width: 200px;
-  height: 200px;
+#taskContainer {
+  width: 180px;
+  height: 180px;
   transform: rotate(3deg);
   box-shadow: 0px 10px 24px 0px rgba(0, 0, 0, 0.75);
   padding: 20px;
+  word-break: break-word;
+
 }
 
-.right-sidebar .task-container {
+.right-sidebar #taskContainer {
   background-image: url('../images/check-solid.svg');
   background-blend-mode: overlay;
 }
@@ -252,39 +252,3 @@ input:focus {
   cursor: pointer;
   transition: all ease-in-out 0.2s;
 } */
-
-.magenta {
-  background: #ff3de8;
-  margin: -5px;
-  transform: rotate(3deg);
-}
-
-.amarelo {
-  background: #c2ff3d;
-  margin: 1px;
-  transform: rotate(1deg);
-}
-
-.azul {
-  background: #3dc2ff;
-  margin: 5px;
-  transform: rotate(-1deg);
-}
-
-.verde {
-  background: #04e022;
-  margin: 10px;
-  transform: rotate(-3deg);
-}
-
-.rosa {
-  background: #bc83e6;
-  margin: 15px;
-  transform: rotate(-5deg);
-}
-
-.laranja {
-  background: #ebb328;
-  margin: 20px;
-  transform: rotate(-10deg);
-}
