@@ -45,7 +45,7 @@ main {
   display: flex;
   align-items: flex-start;
   padding: 15px;
-  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 2px 3px rgb(12, 69, 99);
   justify-content: center;
   gap: 20px;
 }
@@ -138,7 +138,7 @@ nav a {
   position: absolute;
   border-bottom-left-radius: 15px;
   padding: 10px;
-  box-shadow: 1px -2px 3px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px -2px 3px rgb(12, 69, 99);
 }
 
 .new-task {
@@ -237,7 +237,7 @@ input:focus {
 #taskContainer {
   width: 180px;
   height: 180px;
-  box-shadow: 0px 10px 24px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 10px 24px 5px rgb(12, 69, 99);
   color: #0c4563;
 }
 
@@ -250,7 +250,7 @@ input:focus {
   display: flex;
   align-items: center;
   padding: 2px 6px;
-  background-color: #0c4563;
+  background-color: rgb(12, 69, 99);
   opacity: 0.5;
 }
 
@@ -282,11 +282,6 @@ input:focus {
   justify-content: right;
   display: flex;
   align-items: center;
-}
-
-.right-sidebar #taskContainer {
-  background-image: url('../images/check-solid.svg');
-  background-blend-mode: overlay;
 }
 
 /* .task-container:hover {
