@@ -47,5 +47,48 @@ submitBtn.addEventListener('click', e => {
     console.log(lastNameValue);
     form.reset();
     checkFormValidity();
-    alert('Sucesso!');
+    alert('Usuário Criado com Sucesso!');
 });
+
+    if (checkFormValidity()) {
+        createUser();
+    };
+
+const createUser = () => {
+    const url = "https://ctd-todo-api.herokuapp.com/#/users/registerUser";
+    const userInfo = {
+      firstName: inputFirstName.value.toString(),
+      lastName: inputLastName.value.toString(),
+      email: inputEmail.value.toString(),
+      password: inputPassword[0].value.toString(),
+    };
+  
+    console.log("Usuário Criado com Sucesso!", userInfo);
+
+    fetch(url + "/users", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userInfo),
+      })
+        .then((res) => {
+          return res.json();
+        })
+        .then(({ jwt }) => {
+          if (jwt) {
+            sessionStorage.setItem("token", JSON.stringify(jwt));
+            loginPage();
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+        
+};
+
+const loginPage = () => {
+    window.location.href = './index.html';
+    
+};
+
