@@ -158,8 +158,8 @@ const listUserTasks = userTasks => {
         if (taskItem.completed) {
             taskBoardDone.appendChild(task);
             task.style.background = color();
-            task.style.backgroundImage = "url('../assets/images/check-solid.svg')";
-            task.style.backgroundBlendMode = 'overlay';
+            task.style.backgroundImage = `url('data:image/svg+xml, %3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"%3E%3C!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --%3E%3Cpath fill="%230c4563" d="M470.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L192 338.7 425.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/%3E%3C/svg%3E')`;
+            // task.style.backgroundBlendMode = 'overlay';
         } else {
             taskBoard.appendChild(task);
             task.style.background = color();
