@@ -45,7 +45,53 @@ submitBtn.addEventListener('click', e => {
     let lastNameValue = inputLastName.value.replace(/^\s+|\s+$|\s+(?=\s)/g, "");
     console.log(firstNameValue);
     console.log(lastNameValue);
-    form.reset();
+    // form.reset();
     checkFormValidity();
-    alert('Sucesso!');
+    createUser();
+    
 });
+
+
+const createUser = () => {
+    const url = "https://ctd-todo-api.herokuapp.com/v1";
+    const userInfo = {
+      firstName: inputFirstName.value.toString(),
+      lastName: inputLastName.value.toString(),
+      email: inputEmail.value.toString(),
+      password: inputPassword.value.toString(),
+    };
+  
+    
+
+    fetch(url + "/users", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userInfo),
+      })
+        .then((res) => {
+          return res.json();
+        })
+        .then(function (answer) {
+
+          successReg(inputFirstName.value, inputLastName.value, inputEmail.value, answer.jwt)
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+        
+};
+
+// const loginPage = () => {
+//     window.location.href = '/pages/tarefas.html';
+    
+// };
+
+function successReg (name, surname, email, answerJtw){
+
+  sessionStorage.setItem("user" , JSON.stringify({inputFirstName: name, inputLastName: surname, inputEmail: email, token: answerJtw }))
+
+  alert("Usuário cadastrado com sucesso!")
+
+    window.location.href = "./tarefas.html";}

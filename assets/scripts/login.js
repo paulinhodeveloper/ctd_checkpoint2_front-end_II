@@ -29,6 +29,46 @@ submitBtn.addEventListener('click', e => {
     e.preventDefault();
     form.reset();
     checkFormValidity();
+    userLogin();
     // alert('Sucesso!');
-    window.location = './pages/tarefas.html';
+    
 });
+
+const userLogin = () => {
+    const url = 'https://ctd-todo-api.herokuapp.com/v1';
+  
+    const userInfo = {
+      email: inputEmail.value.toString(),
+      password: inputPassword.value.toString()
+    };
+  
+    fetch(url + "/users/login", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(userInfo)
+    })
+    .then((res) => {
+        return res.json();
+      })
+      .then(function (response) {
+        console.log(response)
+            successLogin(response.jwt)
+
+      })
+      .catch((error) => {
+        console.log(error);
+        alert("Erro ao logar")
+      })
+
+};
+
+function successLogin(receivedJWT) {
+        
+    console.log(receivedJWT);
+
+    sessionStorage.setItem("jwt", receivedJWT);
+
+    window.location.href = "./pages/tarefas.html"
+};
