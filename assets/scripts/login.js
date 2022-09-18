@@ -29,7 +29,7 @@ submitBtn.addEventListener('click', e => {
     e.preventDefault();
     form.reset();
     checkFormValidity();
-    userLogin;
+    userLogin();
     // alert('Sucesso!');
     
 });
@@ -42,24 +42,33 @@ const userLogin = () => {
       password: inputPassword.value.toString()
     };
   
-    fetch(`${url}/users/login`, {
+    fetch(url + "/users/login", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(userInfo)
     })
-      .then(res => {
-        return res.json()
+    .then((res) => {
+        return res.json();
       })
-      .then(({ jwt }) => {
-        if (jwt) {
-          sessionStorage.setItem('token', JSON.stringify(jwt));
-          taskPage();
-        }
+      .then(function (response) {
+        console.log(response)
+            successLogin(response.jwt)
+
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.log(error);
+        alert("Erro ao logar")
+      })
 
-}
+};
 
- const taskPage = () => {window.location = './pages/tarefas.html';}
+function successLogin(receivedJWT) {
+        
+    console.log(receivedJWT);
+
+    sessionStorage.setItem("jwt", receivedJWT);
+
+    window.location.href = "./pages/tarefas.html"
+};
