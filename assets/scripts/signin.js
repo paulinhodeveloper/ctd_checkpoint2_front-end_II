@@ -1,6 +1,7 @@
 // Importando módulos
 import { inputValidation } from './modules/inputValidation.js';
 import { checkFormValidity } from './modules/checkFormValidity.js';
+import { signInUser } from './api/signInUser.js';
 
 // Funções para selecionar elementos
 const qs = e => document.querySelector(e);
@@ -20,6 +21,15 @@ const passwordValidation = 'Verifique o Campo (1 letra maiúscula, 1 caractere e
 const submitBtn = qs('button');
 const form = qs('form');
 
+// Objeto JS Login Usuário
+const userSignIn = {
+    email: '',
+    password: ''
+};
+
+// Objeto JSON Login Usuário
+let userSignInJson = '';
+
 // Invocando função para verificar validação do elemento e inserindo parâmetros
 inputValidation(inputEmail, emailValidation, emailRegEx);
 inputValidation(inputPassword, passwordValidation, passwordRegEx);
@@ -27,48 +37,10 @@ inputValidation(inputPassword, passwordValidation, passwordRegEx);
 // Enviar formulário
 submitBtn.addEventListener('click', e => {
     e.preventDefault();
-    form.reset();
     checkFormValidity();
-    userLogin();
-    // alert('Sucesso!');
-    
+    userSignIn.email = inputEmail.value;
+    userSignIn.password = inputPassword.value;
+    userSignInJson = JSON.stringify(userSignIn);
+    signInUser(userSignInJson);
+    form.reset();
 });
-
-const userLogin = () => {
-    const url = 'https://ctd-todo-api.herokuapp.com/v1';
-  
-    const userInfo = {
-      email: inputEmail.value.toString(),
-      password: inputPassword.value.toString()
-    };
-  
-    fetch(url + "/users/login", {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(userInfo)
-    })
-    .then((res) => {
-        return res.json();
-      })
-      .then(function (response) {
-        console.log(response)
-            successLogin(response.jwt)
-
-      })
-      .catch((error) => {
-        console.log(error);
-        alert("Erro ao logar")
-      })
-
-};
-
-function successLogin(receivedJWT) {
-        
-    console.log(receivedJWT);
-
-    sessionStorage.setItem("jwt", receivedJWT);
-
-    window.location.href = "./pages/tarefas.html"
-};

@@ -1,9 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
 
+:root {
+  --primary-color: 12, 69, 99;
+  --secondary-color: 190, 211, 223;
+  --primary-bg-color: 29, 147, 209;
+  --secondary-bg-color: 10, 116, 173;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+*::-webkit-scrollbar {
+  width: 1px;
 }
 
 body {
@@ -15,6 +26,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  background: rgb(var(--secondary-color));
 }
 
 main {
@@ -22,32 +34,32 @@ main {
   height: 95vh;
   border-radius: 15px;
   display: flex;
-  /* box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.6); */
-  /* outline: 3px solid #0c4563; */
+  box-shadow: 0px 0px 10px 2px rgba(var(--primary-color), 0.5);
 }
 
 .left-sidebar {
   border-bottom-left-radius: 15px;
   border-top-left-radius: 15px;
   width: 300px;
-  background: rgb(190, 211, 223);
+  background: rgb(var(--secondary-color));
   position: relative;
-  border-right: 3px solid #0c4563;
+  border-right: 3px solid rgb(var(--primary-color));
 }
 
 .user-info {
   border-top-left-radius: 15px;
   background: linear-gradient(
     58deg,
-    rgba(29, 147, 209, 1) 20%,
-    rgba(10, 116, 173, 1) 100%
+    rgba(var(--primary-bg-color), 1) 20%,
+    rgba(var(--secondary-bg-color), 1) 100%
   );
   display: flex;
   align-items: flex-start;
   padding: 15px;
-  box-shadow: 1px 2px 3px rgb(12, 69, 99);
+  box-shadow: 1px 2px 3px rgb(var(--primary-color));
   justify-content: center;
   gap: 20px;
+  min-height: 152px;
 }
 
 .user-picture svg {
@@ -55,26 +67,26 @@ main {
   width: 80px;
   height: 80px;
   margin-bottom: 15px;
-  border: 3px solid rgba(0, 0, 0, 0.15);
+  border: 3px solid rgba(var(--primary-color), 0.5);
   padding: 3px;
-  background: rgba(0, 0, 0, 0.15);
-  opacity: 0.5;
+  background: rgba(var(--primary-color), 0.5);
 }
 
 #userLogin {
-  color: #fff;
+  color: rgb(var(--secondary-color));
   text-transform: uppercase;
   font-size: 0.75em;
   font-weight: bold;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgb(var(--primary-color));
   padding: 0.3em 1em;
   border-radius: 10px;
   word-break: break-word;
+  /* min-height: 23px;
+  min-width: 130px; */
 }
 
 #logout {
   font-size: 1em;
-  opacity: 0.3;
   cursor: pointer;
 }
 
@@ -89,6 +101,7 @@ main {
   position: absolute;
   top: 3%;
   right: 5%;
+  color: rgb(var(--primary-color));
 }
 
 .user-container {
@@ -110,11 +123,11 @@ nav ul {
 
 nav a {
   text-decoration: none;
-  color: rgb(190, 211, 223);
+  color: rgb(var(--secondary-color));
   height: 30px;
   border-bottom-left-radius: 100px;
   width: 180px;
-  background: rgb(10, 116, 173);
+  background: rgb(var(--secondary-bg-color));
   justify-content: right;
   align-items: center;
   display: flex;
@@ -123,14 +136,14 @@ nav a {
   letter-spacing: 0.2em;
   text-transform: uppercase;
   padding-right: 10px;
-  outline: 3px solid rgb(10, 116, 173);
+  outline: 3px solid rgb(var(--secondary-bg-color));
 }
 
 .add-task {
   background: linear-gradient(
     58deg,
-    rgba(29, 147, 209, 1) 20%,
-    rgba(10, 116, 173, 1) 100%
+    rgba(var(--primary-bg-color), 1) 20%,
+    rgba(var(--secondary-bg-color), 1) 100%
   );
   width: 100%;
   height: 270px;
@@ -138,7 +151,7 @@ nav a {
   position: absolute;
   border-bottom-left-radius: 15px;
   padding: 10px;
-  box-shadow: 1px -2px 3px rgb(12, 69, 99);
+  box-shadow: 1px -2px 3px rgb(var(--primary-color));
 }
 
 .new-task {
@@ -156,7 +169,10 @@ nav a {
   padding: 15px;
   font-size: 1.4em;
   margin-bottom: 10px;
-  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 5px 2px rgba(var(--primary-color), 0.5);
+  background: rgb(var(--secondary-color));
+  border: none;
+  outline: none;
 }
 
 textarea:focus,
@@ -167,18 +183,18 @@ input:focus {
 #createTaskButton {
   width: 150px;
   padding: 8px;
-  color: #fff;
+  color: rgb(var(--secondary-color));
   font-size: 15px;
   font-weight: 600;
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(var(--primary-color), 0.6);
   border-radius: 100px;
   cursor: pointer;
   background: linear-gradient(
     58deg,
-    rgba(29, 147, 209, 1) 20%,
-    rgba(10, 116, 173, 1) 100%
+    rgba(var(--primary-bg-color), 1) 20%,
+    rgba(var(--secondary-bg-color), 1) 100%
   );
-  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 2px 3px rgba(var(--primary-color), 1);
 }
 
 #createTaskButton:hover {
@@ -187,15 +203,14 @@ input:focus {
 
 .container {
   width: 60%;
-  background: rgb(10, 116, 173);
-  border-right: 3px solid #0c4563;
+  background: rgb(var(--secondary-bg-color));
+  border-right: 3px solid rgb(var(--primary-color));
   justify-content: center;
   align-items: center;
   display: flex;
-  background: rgb(10, 116, 173);
+  background: rgb(var(--secondary-bg-color));
   overflow-y: auto;
   display: flex;
-  flex-wrap: wrap;
   flex-direction: column;
 }
 
@@ -213,13 +228,13 @@ input:focus {
   font-size: 2em;
   text-transform: uppercase;
   font-weight: bold;
-  color: rgb(190, 211, 223);
+  color: rgb(var(--secondary-color));
 }
 
 .right-sidebar {
   border-bottom-right-radius: 15px;
   border-top-right-radius: 15px;
-  background: rgb(29, 147, 209);
+  background: rgb(var(--primary-bg-color));
   width: 40%;
   flex-direction: column;
   justify-content: center;
@@ -227,18 +242,13 @@ input:focus {
   display: flex;
   overflow-y: auto;
   display: flex;
-  flex-wrap: wrap;
-}
-
-*::-webkit-scrollbar {
-  width: 1px;
 }
 
 #taskContainer {
-  width: 180px;
-  height: 180px;
-  box-shadow: 0px 10px 24px 5px rgb(12, 69, 99);
-  color: #0c4563;
+  width: 200px;
+  height: 200px;
+  box-shadow: 0px 10px 24px 5px rgb(var(--primary-color));
+  color: rgb(var(--primary-color));
 }
 
 #taskContainer .header {
@@ -250,12 +260,12 @@ input:focus {
   display: flex;
   align-items: center;
   padding: 2px 6px;
-  background-color: rgb(12, 69, 99);
+  background: rgb(var(--primary-color));
   opacity: 0.5;
 }
 
 #taskContainer .desc {
-  height: 135px;
+  height: 150px;
   padding: 5px;
   word-break: break-word;
   font-family: 'Architects Daughter', cursive;
@@ -283,9 +293,3 @@ input:focus {
   display: flex;
   align-items: center;
 }
-
-/* .task-container:hover {
-  transform: scale(1.1);
-  cursor: pointer;
-  transition: all ease-in-out 0.2s;
-} */
