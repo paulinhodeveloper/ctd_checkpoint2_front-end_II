@@ -2,6 +2,7 @@
 import { inputValidation } from './modules/inputValidation.js';
 import { checkFormValidity } from './modules/checkFormValidity.js';
 import { passwordConfirmValidation } from './modules/passwordConfirmValidation.js';
+import { signUpUser } from './api/signUpUser.js'
 
 // Funções para selecionar elementos
 const qs = e => document.querySelector(e);
@@ -27,6 +28,17 @@ const passwordValidation = 'Verifique o Campo (1 letra maiúscula, 1 caractere e
 const submitBtn = qs('button');
 const form = qs('form');
 
+// Objeto JS Registro Usuário
+const userRegister = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: ''
+};
+
+// Objeto JSON Registro Usuário
+let userRegisterJson = "";
+
 // Invocando função para verificar validação do elemento e inserindo parâmetros
 inputValidation(inputEmail, emailValidation, emailRegEx);
 inputValidation(inputPassword, passwordValidation, passwordRegEx);
@@ -39,13 +51,17 @@ passwordConfirmValidation();
 // Enviar formulário
 submitBtn.addEventListener('click', e => {
     e.preventDefault();
+    checkFormValidity();
 
     // Retirar múltiplos espaços do input nome e sobrenome ao enviar o formulário
     let firstNameValue = inputFirstName.value.replace(/^\s+|\s+$|\s+(?=\s)/g, "");
     let lastNameValue = inputLastName.value.replace(/^\s+|\s+$|\s+(?=\s)/g, "");
-    console.log(firstNameValue);
-    console.log(lastNameValue);
+
+    userRegister.firstName = firstNameValue;
+    userRegister.lastName = lastNameValue;
+    userRegister.email = inputEmail.value;
+    userRegister.password = inputPassword.value;
+    userRegisterJson = JSON.stringify(userRegister);
+    signUpUser(userRegisterJson);
     form.reset();
-    checkFormValidity();
-    alert('Sucesso!');
 });
