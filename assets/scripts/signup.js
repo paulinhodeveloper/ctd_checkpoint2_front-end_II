@@ -51,17 +51,17 @@ passwordConfirmValidation();
 // Enviar formulário
 submitBtn.addEventListener('click', e => {
     e.preventDefault();
-    checkFormValidity();
-
+    
     // Retirar múltiplos espaços do input nome e sobrenome ao enviar o formulário
     let firstNameValue = inputFirstName.value.replace(/^\s+|\s+$|\s+(?=\s)/g, "");
     let lastNameValue = inputLastName.value.replace(/^\s+|\s+$|\s+(?=\s)/g, "");
-
+    
     userRegister.firstName = firstNameValue;
     userRegister.lastName = lastNameValue;
     userRegister.email = inputEmail.value;
     userRegister.password = inputPassword.value;
     userRegisterJson = JSON.stringify(userRegister);
     signUpUser(userRegisterJson);
-    form.reset();
+    // form.reset();
+    checkFormValidity();
 });

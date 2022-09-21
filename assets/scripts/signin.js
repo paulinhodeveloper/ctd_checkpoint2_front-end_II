@@ -14,8 +14,8 @@ const emailValidation = 'Email inválido';
 
 // Variáveis do campo senha
 const inputPassword = gi('inputPassword');
-const passwordRegEx = /^(?!.*\s)(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[~`!@#$%^&*()--+={}\[\]|\\:;"'<>,.?/_₹]).{10,16}$/;
-const passwordValidation = 'Verifique o Campo (1 letra maiúscula, 1 caractere especial e no mínimo 10 dígitos)';
+const passwordRegEx = inputPassword.value;
+const passwordValidation = 'Campo Obrigatório';
 
 // Variáveis do elemento button e do form
 const submitBtn = qs('button');
@@ -37,10 +37,10 @@ inputValidation(inputPassword, passwordValidation, passwordRegEx);
 // Enviar formulário
 submitBtn.addEventListener('click', e => {
     e.preventDefault();
-    checkFormValidity();
     userSignIn.email = inputEmail.value;
     userSignIn.password = inputPassword.value;
     userSignInJson = JSON.stringify(userSignIn);
     signInUser(userSignInJson);
     form.reset();
+    checkFormValidity();
 });
