@@ -99,6 +99,13 @@ main {
   margin-top: 10px;
 }
 
+.error {
+  color: #b32e2e;
+  font-size: 12px;
+  min-height: 20px;
+  font-weight: 600;
+}
+
 form {
   width: 100%;
   display: flex;

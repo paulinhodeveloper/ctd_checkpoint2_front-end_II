@@ -1,6 +1,13 @@
 // Base URL da API
 const baseUrl = 'https://ctd-todo-api.herokuapp.com/v1';
 
+// Funções para selecionar elementos
+const qs = e => document.querySelector(e);
+
+// Variável campo Validação Erro Login
+const errorValidation = qs('.error');
+
+//Requisição API Login Usuário
 export const signInUser = user => {
     const request = {
         method: "POST",
@@ -22,11 +29,17 @@ export const signInUser = user => {
         .catch(err => errorSignin(err));
 };
 
+// Função Login com Sucesso
 const successSignin = result => {
     sessionStorage.setItem('token', result.jwt);
     location = './pages/tarefas.html';
 };
 
+// Função Login com Erro
 const errorSignin = err => {
-    console.log(err);
+    if (err.status === 400 || err.status === 404)
+        errorValidation.innerText = 'Usuário/Senha Incorreto!';
+    setTimeout(() => {
+        errorValidation.innerText = '';
+    }, 5000)
 };

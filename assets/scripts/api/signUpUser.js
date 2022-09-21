@@ -1,6 +1,17 @@
 // Base URL da API
 const baseUrl = 'https://ctd-todo-api.herokuapp.com/v1';
 
+// Funções para selecionar elementos
+const qs = e => document.querySelector(e);
+const gi = e => document.getElementById(e);
+
+// Variável campo Validação Erro Cadastro
+const errorValidation = qs('.error');
+
+// Variável do campo e-mail
+const inputEmail = gi('inputEmail');
+
+//Requisição API Cadastro Usuário
 export const signUpUser = user => {
     const request = {
         method: "POST",
@@ -22,11 +33,19 @@ export const signUpUser = user => {
         .catch(err => errorSignup(err));
 };
 
+// Função Cadastro com Sucesso
 const successSignup = result => {
     sessionStorage.setItem('token', result.jwt);
     location = '/';
 };
 
-const errorSignup = erro => {
-    console.log(erro);
+// Função Cadastro com Erro
+const errorSignup = err => {
+    if (err.status === 400) {
+        errorValidation.innerText = 'Usuário já cadastrado!';
+        inputEmail.focus();
+        setTimeout(() => {
+            errorValidation.innerText = '';
+        }, 5000);
+    };
 };
