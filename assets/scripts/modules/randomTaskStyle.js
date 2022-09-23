@@ -1,4 +1,4 @@
-// // Função para definir cor aleatória
+// Função para definir cor aleatória
 let i = 0;
 export const color = () => {
     const randomColor = ['#ff3de8', '#c2ff3d', '#3dc2ff', '#04e022', '#bc83e6', '#ebb328'];

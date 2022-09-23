@@ -1,6 +1,6 @@
 import { getUser } from './api/getUser.js';
-import { getUserTasks } from './api/getUserTasks.js';
-import { createUserTask } from './api/createUserTask.js';
+import { getTasks } from './api/getTasks.js';
+import { createTask } from './api/createTask.js';
 
 // Funções para selecionar elementos
 const qs = e => document.querySelector(e);
@@ -11,9 +11,6 @@ const logoutBtn = gi('logout');
 
 // Variável Campo Descrição Tarefa
 const inputTask = gi('newTask');
-
-// Variável Elemento Quadro de Tarefas
-const taskBoard = gi('taskBoard');
 
 // Variáveis do elemento button e do form
 const form = qs('form');
@@ -33,7 +30,7 @@ let token = sessionStorage.getItem('token');
 
 onload = () => {
   getUser(token);
-  getUserTasks(token);
+  getTasks(token);
 };
 
 // Função para adicionar tarefa
@@ -41,7 +38,7 @@ taskBtn.addEventListener('click', e => {
   e.preventDefault();
   task.description = inputTask.value.replace(/\n/g, " ");
   taskJson = JSON.stringify(task);
-  createUserTask(taskJson);
+  createTask(token, taskJson);
   form.reset();
 });
 

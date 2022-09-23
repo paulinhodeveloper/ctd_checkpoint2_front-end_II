@@ -1,7 +1,7 @@
-// Base URL da API
-const baseUrl = 'https://ctd-todo-api.herokuapp.com/v1';
+import { baseUrl } from './baseUrl.js';
 
-export const deleteUserTask = (token, taskId) => {
+//Requisição na API para Apagar Tarefa do Usuário
+export const deleteTask = (token, taskId) => {
     const request = {
         method: "DELETE",
         headers: {

@@ -1,13 +1,12 @@
 import { color, rotate, margin } from './randomTaskStyle.js';
-import { deleteUserTask } from '../api/deleteUserTask.js';
+import { deleteTask } from '../api/deleteTask.js';
+import { updateTask } from '../api/updateTask.js';
+import { getTask } from '../api/getTask.js';
 
 // Funções para selecionar elementos
 const qs = e => document.querySelector(e);
 const gi = e => document.getElementById(e);
 const qsa = e => document.querySelectorAll(e);
-
-// Pegar token no Session Storage
-let token = sessionStorage.getItem('token');
 
 // Variável Elemento Quadro de Tarefas
 const taskBoard = gi('taskBoard');
@@ -15,14 +14,17 @@ const taskBoard = gi('taskBoard');
 // Variável Elemento Quadro de Tarefas Feitas
 const taskBoardDone = qs('.right-sidebar #taskBoard');
 
-let userTasksJson = "";
+// Função para Renderizar Tarefas no Quadro de Tarefas/Tarefas Concluídas
+export const renderUserTasks = token => {
 
-export const renderUserTasks = (data) => {
-  userTasksJson = JSON.stringify(data);
-  sessionStorage.setItem('userTasks', userTasksJson);
+  taskBoard.innerHTML = '';
+  taskBoardDone.innerHTML = '';
+
+  // Pegar as tarefas salvas no SessionStorage para renderizar
   const userTasks = sessionStorage.getItem('userTasks');
   const userTasksObj = JSON.parse(userTasks);
   userTasksObj.forEach(taskItem => {
+
     const date = new Date(taskItem.createdAt);
     const newDate = date.toLocaleDateString();
     const task = document.createElement('div');
@@ -40,7 +42,7 @@ export const renderUserTasks = (data) => {
       taskBoard.appendChild(task);
     };
 
-    task.innerHTML = ' ';
+    task.innerHTML = '';
     task.innerHTML = `
       <div class="header">
       <svg id="editTask" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -75,21 +77,76 @@ export const renderUserTasks = (data) => {
     taskHeaderSVG.forEach(e => e.style.display = 'none');
   })
 
-  const deleteTaskBtn = qsa('#deleteTask')
-  if (document.contains(taskBoard)) {
-    deleteTaskBtn.forEach(e => {
-      e.addEventListener('click', () => {
-        const taskBoard = gi('taskBoard');
-        let task = e.parentElement.parentElement;
-        let id = task.getAttribute('task-id');
-        taskBoard.removeChild(task)
-        deleteUserTask(token, id)
-        const userTasks = sessionStorage.getItem('userTasks')
-        const userTasksObj = JSON.parse(userTasks)
-        const newUserTasksObj = userTasksObj.filter(e => e.id != id)
-        let userTasksJson = JSON.stringify(newUserTasksObj)
-        sessionStorage.setItem('userTasks', userTasksJson)
-      })
-    })
-  };
-}
+  // Variável Botão Apagar Tarefas
+  const deleteTaskBtn = qsa('#deleteTask');
+
+  // Função de Clique para Apagar Tarefa
+  deleteTaskBtn.forEach(e => {
+    e.addEventListener('click', () => {
+
+      // Selectionar a tarefa
+      const taskBoard = gi('taskBoard');
+      let task = e.parentElement.parentElement;
+      let id = task.getAttribute('task-id');
+
+      // Remover a tarefa do quadro de tarefas
+      taskBoardDone.contains(task) ? taskBoardDone.removeChild(task) : taskBoard.removeChild(task);
+
+      // Remover a tarefa da API
+      deleteTask(token, id)
+
+      // Remover a tarefa da lista de tarefas no storage
+      const userTasks = sessionStorage.getItem('userTasks')
+      const userTasksObj = JSON.parse(userTasks)
+      const newUserTasksObj = userTasksObj.filter(e => e.id != id)
+
+      // Atualizar a lista de tarefas no storage
+      let userTasksJson = JSON.stringify(newUserTasksObj)
+      sessionStorage.setItem('userTasks', userTasksJson)
+    });
+  });
+
+  // Variável Botão Apagar Tarefas
+  const checkTaskBtn = qsa('#checkTask');
+
+  // Função de Clique para Marcar/Desmarcar Tarefa Feita
+  checkTaskBtn.forEach(e => {
+    e.addEventListener('click', () => {
+
+      // Selectionar a tarefa
+      let task = e.parentElement.parentElement;
+      let id = task.getAttribute('task-id');
+      getTask(token, id);
+
+      // Setar tempo para selecionar a tarefa
+      setTimeout(() => {
+
+        // Pegar a tarefa no storage
+        const userTask = sessionStorage.getItem('selectTask');
+        const userTaskObj = JSON.parse(userTask);
+
+        // Definir a tarefa como concluída/não concluída
+        userTaskObj.completed ? userTaskObj.completed = false : userTaskObj.completed = true;
+
+        // Atualizar a tarefa na API
+        let userTaskJson = JSON.stringify(userTaskObj);
+        sessionStorage.setItem('selectTask', userTaskJson);
+        updateTask(token, id, userTaskJson);
+
+        // Atualizar a lista de tarefas no storage
+        let updatedTask = userTaskObj;
+        const userTasks = sessionStorage.getItem('userTasks');
+        const userTasksObj = JSON.parse(userTasks);
+        const indexOfItemInArray = userTasksObj.findIndex(q => q.id == updatedTask.id);
+        if (indexOfItemInArray > -1) {
+          userTasksObj[indexOfItemInArray] = updatedTask;
+        };
+        let userTasksJson = JSON.stringify(userTasksObj);
+        sessionStorage.setItem('userTasks', userTasksJson);
+
+        // Reinderizar as tarefas
+        renderUserTasks(token);
+      }, 500)
+    });
+  });
+};

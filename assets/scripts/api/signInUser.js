@@ -1,5 +1,4 @@
-// Base URL da API
-const baseUrl = 'https://ctd-todo-api.herokuapp.com/v1';
+import { baseUrl } from './baseUrl.js';
 
 // Funções para selecionar elementos
 const qs = e => document.querySelector(e);
