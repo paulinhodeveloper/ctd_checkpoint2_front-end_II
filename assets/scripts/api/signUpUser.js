@@ -1,5 +1,4 @@
-// Base URL da API
-const baseUrl = 'https://ctd-todo-api.herokuapp.com/v1';
+import { baseUrl } from './baseUrl.js';
 
 // Funções para selecionar elementos
 const qs = e => document.querySelector(e);
@@ -36,7 +35,7 @@ export const signUpUser = user => {
 // Função Cadastro com Sucesso
 const successSignup = result => {
     sessionStorage.setItem('token', result.jwt);
-    location = '/';
+    location = '/index.html'
 };
 
 // Função Cadastro com Erro

@@ -1,10 +1,12 @@
 import { renderUserTasks } from '../modules/renderUserTasks.js';
 
-// Base URL da API
-const baseUrl = 'https://ctd-todo-api.herokuapp.com/v1';
+import { baseUrl } from './baseUrl.js';
+
+// Objeto JSON das Tarefas do Usuário
+let userTasksJson = "";
 
 // Função para mostrar as tarefas do usuário
-export const getUserTasks = token => {
+export const getTasks = token => {
     const request = {
         method: "GET",
         headers: {
@@ -14,6 +16,10 @@ export const getUserTasks = token => {
 
     fetch(`${baseUrl}/tasks`, request)
         .then(result => { return result.json(); })
-        .then(data => { renderUserTasks(data); })
+        .then(data => {
+            userTasksJson = JSON.stringify(data);
+            sessionStorage.setItem('userTasks', userTasksJson);
+            renderUserTasks(token);
+        })
         .catch(err => console.log(err));
 };
