@@ -2,6 +2,8 @@ import { getUser } from './api/getUser.js';
 import { getTasks } from './api/getTasks.js';
 import { createTask } from './api/createTask.js';
 
+import { checkFormValidity } from './modules/checkFormValidity.js';
+
 // Funções para selecionar elementos
 const qs = e => document.querySelector(e);
 const gi = e => document.getElementById(e);
@@ -33,6 +35,18 @@ onload = () => {
   getTasks(token);
 };
 
+inputTask.addEventListener('keydown', e => {
+  // Não permitir dar Enter ao adicionar tarefa
+  if (e.key === 'Enter') {
+    e.preventDefault();
+  };
+});
+
+// Verificando Validação do Campo para adicionar tarefa
+inputTask.addEventListener('keyup', () => {
+  checkFormValidity();
+});
+
 // Função para adicionar tarefa
 taskBtn.addEventListener('click', e => {
   e.preventDefault();
@@ -40,6 +54,7 @@ taskBtn.addEventListener('click', e => {
   taskJson = JSON.stringify(task);
   createTask(token, taskJson);
   form.reset();
+  checkFormValidity();
 });
 
 // Função para deslogar usuário
@@ -47,5 +62,5 @@ logoutBtn.addEventListener('click', e => {
   e.preventDefault();
   sessionStorage.removeItem('token');
   sessionStorage.removeItem('user');
-  location = '/';
+  location.href = '/index.html';
 });

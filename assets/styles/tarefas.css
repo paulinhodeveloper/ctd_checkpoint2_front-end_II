@@ -86,7 +86,7 @@ main {
 }
 
 #logout {
-  font-size: 1em;
+  font-size: 0.7em;
   cursor: pointer;
 }
 
@@ -99,8 +99,8 @@ main {
 
 #logout p {
   position: absolute;
-  top: 3%;
-  right: 5%;
+  top: 4.5%;
+  right: 6.5%;
   color: rgb(var(--primary-color));
 }
 
@@ -201,6 +201,11 @@ input:focus {
   filter: brightness(1.03);
 }
 
+#createTaskButton:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
 .container {
   width: 60%;
   background: rgb(var(--secondary-bg-color));
@@ -221,14 +226,15 @@ input:focus {
   flex-wrap: wrap;
   gap: 10px;
   justify-content: space-around;
-  padding: 50px 30px;
+  padding: 50px 40px;
 }
 
 .task-board-header {
-  font-size: 2em;
+  font-size: 1.3em;
   text-transform: uppercase;
   font-weight: bold;
   color: rgb(var(--secondary-color));
+  text-align: center;
 }
 
 .right-sidebar {
@@ -271,6 +277,7 @@ input:focus {
   font-family: 'Architects Daughter', cursive;
   font-weight: bold;
   outline: none;
+  /* display: inline; */
 }
 
 #taskContainer .header svg {
@@ -295,7 +302,7 @@ input:focus {
   align-items: center;
 }
 
-#taskContainer .updateDesc{
+#taskContainer .updateDesc {
   padding-left: 10px;
   display: flex;
 }
@@ -306,9 +313,70 @@ input:focus {
   cursor: pointer;
   display: none;
 }
+
+#taskContainer .updateDesc svg:hover {
+  opacity: 0.5;
+  cursor: pointer;
+  transition: all ease-in-out 0.2s;
+}
+
 #taskContainer .footer {
   display: flex;
   width: 100%;
-  /* background: red; */
   justify-content: space-between;
+}
+
+.tooltiptext {
+  visibility: hidden;
+  width: 60px;
+  background-color: black;
+  color: #fff;
+  font-size: 0.6em;
+  text-align: center;
+  padding: 2px 0;
+  border-radius: 5px;
+  position: absolute;
+  z-index: 1;
+  top: -17px;
+  left: 0;
+  text-align: center;
+  letter-spacing: 0.1em;
+}
+
+#taskContainer .header #editTask:hover + .tooltiptext {
+  visibility: visible;
+}
+
+#taskContainer .header #deleteTask:hover + .tooltiptext {
+  visibility: visible;
+}
+
+.container #taskContainer .header #checkTask:hover + .tooltiptext {
+  visibility: visible;
+}
+
+.right-sidebar #taskContainer .header #checkTask:hover + .tooltiptext:after {
+  visibility: visible;
+  content: 'Desfazer';
+  width: 60px;
+  background-color: black;
+  text-align: center;
+  padding: 2px 0;
+  border-radius: 5px;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  text-align: center;
+  letter-spacing: 0.1em;
+}
+
+#taskContainer .footer .updateDesc #cancelUpdate:hover + .tooltiptext {
+  visibility: visible;
+  opacity: 0.5;
+}
+
+#taskContainer .footer .updateDesc #saveUpdate:hover + .tooltiptext {
+  visibility: visible;
+  opacity: 0.5;
 }

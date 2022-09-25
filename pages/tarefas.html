@@ -60,18 +60,20 @@
             <textarea
               id="newTask"
               maxlength="95"
+              minlength="6"
               placeholder="Nova tarefa"
+              required
             ></textarea>
-            <button type="submit" id="createTaskButton">Adiconar Tarefa</button>
+            <button disabled type="submit" id="createTaskButton">Adiconar Tarefa</button>
           </form>
         </div>
       </div>
       <div class="container">
-        <div class="task-board-header">Quadro de Tarefas</div>
+        <div class="task-board-header">Tarefas</div>
         <div id="taskBoard"></div>
       </div>
       <div class="right-sidebar">
-        <div class="task-board-header">Tarefas Concluídas</div>
+        <div class="task-board-header">Concluídas</div>
         <div id="taskBoard"></div>
       </div>
     </main>
