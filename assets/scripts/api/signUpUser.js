@@ -35,7 +35,7 @@ export const signUpUser = user => {
 // Função Cadastro com Sucesso
 const successSignup = result => {
     sessionStorage.setItem('token', result.jwt);
-    location = '/index.html'
+    location.href = '/index.html';
 };
 
 // Função Cadastro com Erro

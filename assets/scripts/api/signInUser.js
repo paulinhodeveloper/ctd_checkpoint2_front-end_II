@@ -31,7 +31,7 @@ export const signInUser = user => {
 // Função Login com Sucesso
 const successSignin = result => {
     sessionStorage.setItem('token', result.jwt);
-    location = './pages/tarefas.html';
+    location.href = './pages/tarefas.html';
 };
 
 // Função Login com Erro

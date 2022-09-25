@@ -2,13 +2,14 @@ import { getTask } from '../api/getTask.js';
 import { updateTask } from '../api/updateTask.js';
 
 export const editUserTask = (e, token, event) => {
+
     // Variáveis dos Elementos da Tarefa
-    let task = e.parentElement.parentElement;
-    let id = task.getAttribute('task-id');
-    let taskDesc = e.parentElement.parentElement.childNodes[3];
-    let taskHeader = e.parentElement;
-    let cancelUpdateBtn = e.parentElement.parentElement.childNodes[5].children[0].childNodes[1];
-    let saveUpdateBtn = e.parentElement.parentElement.childNodes[5].children[0].childNodes[3];
+    const task = e.parentElement.parentElement;
+    const id = task.getAttribute('task-id');
+    const taskDesc = e.parentElement.parentElement.childNodes[3];
+    const taskHeader = e.parentElement;
+    const cancelUpdateBtn = e.parentElement.parentElement.childNodes[5].children[0].childNodes[1];
+    const saveUpdateBtn = e.parentElement.parentElement.childNodes[5].children[0].childNodes[5];
 
     // Pegar a tarefa no storage
     if (e.contains(event.target)) {
@@ -41,28 +42,68 @@ export const editUserTask = (e, token, event) => {
             cancelUpdateBtn.style.display = 'block';
             saveUpdateBtn.style.display = 'block';
 
-            // Variáveis para texto da descrição atual na tarefa / descrição da tarefa selecionada no storage
-            let currentTextDesc = taskDesc.innerHTML;
-            let currentStorageDesc = userTaskObj.description;
 
-            // Salvar descrição atual da tarefa no storage
-            sessionStorage.setItem('currentTextDesc', currentTextDesc);
+            // Evento de key para registrar quando a tecla foi pressionada
+            taskDesc.addEventListener('keydown', e => {
+                // Não permitir dar Enter ao editar a descrição
+                // Não permitir backspace e delete se a descrição tiver menos de 6 carácteres
+                if (e.key === 'Enter' || (e.key === 'Delete' && taskDesc.innerText.length <= 6)) {
+                    e.preventDefault();
+                };
+            });
 
-            // Evento de key para salvar a descrição da tarefa ao digitar no storage
+            // Evento de key para registrar quando a tecla foi levantada
             taskDesc.addEventListener('keyup', () => {
-                currentTextDesc = taskDesc.innerHTML
+                
+                // Variável para texto da descrição atual na tarefa
+                let currentTextDesc = taskDesc.innerText;
+
+                // Salvar descrição atual da tarefa no storage
                 sessionStorage.setItem('currentTextDesc', currentTextDesc);
+
+                // Evento de key para registrar quando a tecla foi pressionada
+                taskDesc.addEventListener('keydown', e => {
+
+                    // Variável da tecla
+                    const keycode = e.keyCode;
+
+                    // Variáveis com o código das teclas que digitam
+                    const printable =
+                        (keycode > 47 && keycode < 58) || // teclas dos números
+                        keycode == 32 || // barra de espaço
+                        (keycode > 64 && keycode < 91) || // teclas de letras
+                        (keycode > 95 && keycode < 112) || // teclas teclado númerico
+                        (keycode > 185 && keycode < 193) || // ;=,-./` 
+                        (keycode > 218 && keycode < 223);   // [\]' 
+
+                    // Não permitir dar Enter ao editar a descrição / máximo 96 carácteres
+                    if (taskDesc.innerText.length > 96 && printable) {
+                        e.preventDefault();
+                    };
+
+                    // Não permitir backspace e delete se a descrição tiver menos de 6 carácteres
+                    if (taskDesc.innerText.length <= 6 && (e.keyCode == 8 || e.keyCode == 46)) {
+                        e.preventDefault();
+                    };
+
+                    // Salvar a descrição da tarefa ao digitar no storage
+                    currentTextDesc = taskDesc.innerText;
+                    sessionStorage.setItem('currentTextDesc', currentTextDesc);
+                });
             });
 
             // Evento de clique no botão para salvar alteração na descrição da tarefa
             saveUpdateBtn.addEventListener('click', () => {
-
+                
+                //  Variável da descrição da tarefa selecionada no storage
+                let currentStorageDesc = userTaskObj.description;
+                
                 // Pegar a descrição da tarefa salvo no storage
                 let textDescStorage = sessionStorage.getItem('currentTextDesc');
-
+                
                 // Se a descrição da tarefa salva no storage for diferente da descrição da tarefa selecionada no storage
                 if (currentStorageDesc != textDescStorage) {
-
+                    
                     // Atualizar a descrição da tarefa selecionada no storage
                     userTaskObj.description = textDescStorage;
 
@@ -92,8 +133,8 @@ export const editUserTask = (e, token, event) => {
             taskDesc.setAttribute('contentEditable', false);
 
             // Esconder botões para salvar/cancelar edição da tarefa
-            saveUpdateBtn.style.display = 'none'
-            cancelUpdateBtn.style.display = 'none'
+            saveUpdateBtn.style.display = 'none';
+            cancelUpdateBtn.style.display = 'none';
 
             // Mostrar Header da tarefa
             taskHeader.style.display = '';
@@ -101,17 +142,16 @@ export const editUserTask = (e, token, event) => {
             // Voltar altura da descrição da tarefa original
             taskDesc.style.height = '150px';
 
-            // Atualizar a lista de tarefas no storage
+            // Pegar tarefa selecionada no storage
             const userTask = sessionStorage.getItem('selectTask');
             const userTaskObj = JSON.parse(userTask);
 
             // Se a tarefa sendo editada tiver alteração do texto, mas não for clicado no botão para salvar
-            if (e.parentElement.parentElement.getAttribute('task-id') == userTaskObj.id) {
+            if (task.getAttribute('task-id') == userTaskObj.id) {
 
                 // Descrição da tarefa igual quando foi selecionada(sem alteração)
-                e.parentElement.parentElement.childNodes[3].innerHTML = userTaskObj.description
+                taskDesc.innerText = userTaskObj.description;
             };
         };
     }, 500);
-
-}
+};
