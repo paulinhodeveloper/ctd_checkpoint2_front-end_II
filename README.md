@@ -141,6 +141,8 @@ Como dito acima, módulos são recursos muito úteis, uma vez que proporcionam q
 
 <h2 id="integrantes">✅ Integrantes do grupo ✅</h2>
 
+<br>
+
 <div style="display:flex; flex-direction: column">
 
 <a href="https://github.com/braulioportela79">
@@ -148,16 +150,23 @@ Como dito acima, módulos são recursos muito úteis, uma vez que proporcionam q
 Braulio Portela
 </a>
 
+<br>
+
+
 <a href="https://github.com/paulinhodeveloper">
 <img src="https://github.com/paulinhodeveloper.png" height="50px" 
 style="border-radius: 50px"> 
 Paulo Henrique Santos Borges
 </a>
 
+<br>
+
 <a href="https://github.com/jfamigo">
 <img src="https://github.com/jfamigo.png" height="50px" style="border-radius: 50px"> 
 João Francisco Gimenes
 </a>
+
+<br>
 
 <a href="https://github.com/Adersoncc">
 <img src="https://github.com/Adersoncc.png" height="50px" 
@@ -165,10 +174,14 @@ style="border-radius: 50px">
 Áderson Costa
 </a>
 
+<br>
+
 <a href="https://github.com/IVANALDOSANTOS">
 <img src="https://github.com/IVANALDOSANTOS.png" height="50px" style="border-radius: 50px"> 
 Ivanaldo da Silva Santos
 </a>
+
+<br>
 
 <a href="https://github.com/JPossoli">
 <img src="https://github.com/JPossoli.png" height="50px" style="border-radius: 50px"> 
