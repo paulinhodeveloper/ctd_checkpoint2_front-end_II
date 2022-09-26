@@ -141,8 +141,6 @@ Como dito acima, módulos são recursos muito úteis, uma vez que proporcionam q
 
 <h2 id="integrantes">✅ Integrantes do grupo ✅</h2>
 
-<div style="display:flex; flex-direction: column">
-
 <a href="https://github.com/braulioportela79">
 <img src="https://github.com/braulioportela79.png" height="50px">
 Braulio Portela
@@ -172,6 +170,4 @@ Ivanaldo da Silva Santos
 <img src="https://github.com/JPossoli.png" height="50px"> 
 Jonathan A. Possoli
 </a>
-
-</div>
 
