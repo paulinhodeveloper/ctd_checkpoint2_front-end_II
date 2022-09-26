@@ -152,7 +152,6 @@ Braulio Portela
 
 <br>
 
-
 <a href="https://github.com/paulinhodeveloper">
 <img src="https://github.com/paulinhodeveloper.png" height="50px" 
 style="border-radius: 50px"> 
