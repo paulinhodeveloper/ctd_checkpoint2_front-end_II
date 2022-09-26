@@ -145,53 +145,38 @@ Como dito acima, módulos são recursos muito úteis, uma vez que proporcionam q
 
 <div class="row" style="display:flex; flex-direction: column">
     <div class="developer1">
-    <img class="paulinho" src="https://github.com/paulinhodeveloper.png" alt="paulinho" />
-    <p>Paulo Henrique Santos Borges</p>
+    <img class="braulio" src="https://github.com/braulioportela79" height="50px" style="border-radius: 50px alt="braulio" />
+    <p>Braulio Portela/p>
 </div>
  
 <div class="row" style="display:flex; flex-direction: column">
     <div class="developer2">
-    <img class="paulinho" src="https://github.com/paulinhodeveloper.png" alt="paulinho" />
+    <img class="paulinho" src="https://github.com/paulinhodeveloper.png" height="50px" style="border-radius: 50px alt="paulinho" />
     <p>Paulo Henrique Santos Borges</p>
 </div>
  
 <div class="row" style="display:flex; flex-direction: column">
     <div class="developer3">
-    <img class="paulinho" src="https://github.com/paulinhodeveloper.png" alt="paulinho" />
-    <p>Paulo Henrique Santos Borges</p>
+    <img class="Joao" src="https://github.com/jfamigo.png" height="50px" style="border-radius: 50px alt="Joao" />
+    <p>João Francisco Gimenes</p>
 </div>
 
-<a href="https://github.com/braulioportela79">
-<img src="https://github.com/braulioportela79.png" height="50px" style="border-radius: 50px">
-Braulio Portela
-</a>
+<div class="row" style="display:flex; flex-direction: column">
+    <div class="developer4">
+    <img class="anderson" src="https://github.com/Adersoncc.png" height="50px" style="border-radius: 50px alt="anderson" />
+    <p>Áderson Costa</p>
+</div>
 
+<div class="row" style="display:flex; flex-direction: column">
+    <div class="developer5">
+    <img class="ivanaldo" src="https://github.com/jfamigo.png" height="50px" style="border-radius: 50px alt="ivanaldo" />
+    <p>Ivanaldo da Silva Santos</p>
+</div>
 
-<a href="https://github.com/paulinhodeveloper">
-<img src="https://github.com/paulinhodeveloper.png" height="50px" 
-style="border-radius: 50px"> 
-Paulo Henrique Santos Borges
-</a>
-
-<a href="https://github.com/jfamigo">
-<img src="https://github.com/jfamigo.png" height="50px" style="border-radius: 50px"> 
-João Francisco Gimenes
-</a>
-
-<a href="https://github.com/Adersoncc">
-<img src="https://github.com/Adersoncc.png" height="50px" 
-style="border-radius: 50px"> 
-Áderson Costa
-</a>
-
-<a href="https://github.com/IVANALDOSANTOS">
-<img src="https://github.com/IVANALDOSANTOS.png" height="50px" style="border-radius: 50px"> 
-Ivanaldo da Silva Santos
-</a>
-
-<a href="https://github.com/JPossoli">
-<img src="https://github.com/JPossoli.png" height="50px" style="border-radius: 50px"> 
-Jonathan A. Possoli
-</a>
+<div class="row" style="display:flex; flex-direction: column">
+    <div class="developer6">
+    <img class="jonathan" src="https://github.com/jfamigo.png" height="50px" style="border-radius: 50px alt="jonathan" />
+    <p>Jonathan A. Possoli</p>
+</div>
 
 </div>
