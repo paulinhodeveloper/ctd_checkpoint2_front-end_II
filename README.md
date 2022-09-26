@@ -36,7 +36,6 @@ A disposição das pastas e aquivos segue o padrão:
 
 :open_file_folder: Checkpoint_2-Frontend_2
 - :page_facing_up: index.html
-- :page_facing_up: README.md
 :open_file_folder: assets
 - - :open_file_folder: images
 - - :open_file_folder: scripts
