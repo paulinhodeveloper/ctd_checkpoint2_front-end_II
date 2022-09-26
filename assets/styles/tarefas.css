@@ -81,8 +81,6 @@ main {
   padding: 0.3em 1em;
   border-radius: 10px;
   word-break: break-word;
-  /* min-height: 23px;
-  min-width: 130px; */
 }
 
 #logout {
@@ -99,8 +97,8 @@ main {
 
 #logout p {
   position: absolute;
-  top: 4.5%;
-  right: 6.5%;
+  top: 30px;
+  right: 16px;
   color: rgb(var(--primary-color));
 }
 
@@ -146,12 +144,30 @@ nav a {
     rgba(var(--secondary-bg-color), 1) 100%
   );
   width: 100%;
-  height: 270px;
+  /* height: 270px; */
   bottom: 0;
   position: absolute;
   border-bottom-left-radius: 15px;
   padding: 10px;
   box-shadow: 1px -2px 3px rgb(var(--primary-color));
+  display: flex;
+  flex-direction: column;
+}
+
+#addTaskValidation {
+  height: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+#addTaskValidation span{
+  display: none;
+  font-size: 0.7em;
+  padding-bottom: 5px;
+  align-self: center;
+  color: #b32e2e;
+  font-weight: bold;
+  font-style: italic;
 }
 
 .new-task {
@@ -159,6 +175,7 @@ nav a {
   flex-direction: column;
   align-items: center;
   height: 100%;
+  height: 230px;
 }
 
 .new-task #newTask {
@@ -257,6 +274,17 @@ input:focus {
   color: rgb(var(--primary-color));
 }
 
+.tooltip {
+  display: none;
+  font-size: 0.5em;
+  padding-left: 5px;
+  align-self: center;
+  color: #b32e2e;
+  font-weight: bold;
+  font-style: italic;
+  width: 80px;
+}
+
 #taskContainer .header {
   margin-top: 5px;
   width: 40%;
@@ -266,8 +294,7 @@ input:focus {
   display: flex;
   align-items: center;
   padding: 2px 6px;
-  background: rgb(var(--primary-color));
-  opacity: 0.5;
+  background: rgba(var(--primary-color), 0.6);
 }
 
 #taskContainer .desc {
@@ -277,7 +304,7 @@ input:focus {
   font-family: 'Architects Daughter', cursive;
   font-weight: bold;
   outline: none;
-  /* display: inline; */
+  overflow: hidden;
 }
 
 #taskContainer .header svg {
@@ -285,12 +312,9 @@ input:focus {
   height: 15px;
 }
 
-#taskContainer .header svg:hover {
+#taskContainer .header svg path {
   opacity: 0.5;
-  cursor: pointer;
-  transition: all ease-in-out 0.2s;
 }
-
 #taskContainer .date {
   height: 20px;
   font-size: 0.7em;
@@ -303,13 +327,15 @@ input:focus {
 }
 
 #taskContainer .updateDesc {
-  padding-left: 10px;
+  padding-left: 8px;
+  /* gap: 5px; */
   display: flex;
+  justify-content: space-between;
 }
 
 #taskContainer .updateDesc svg {
-  height: 25px;
-  width: 25px;
+  height: 20px;
+  width: 20px;
   cursor: pointer;
   display: none;
 }
@@ -328,23 +354,32 @@ input:focus {
 
 .tooltiptext {
   visibility: hidden;
-  width: 60px;
-  background-color: black;
-  color: #fff;
+  background: rgb(var(--primary-color));
+  color: rgb(var(--secondary-color));
+  font-style: italic;
   font-size: 0.6em;
   text-align: center;
-  padding: 2px 0;
+  padding: 2px 6px;
   border-radius: 5px;
   position: absolute;
   z-index: 1;
-  top: -17px;
+  top: -20px;
   left: 0;
+  opacity: 0.6;
   text-align: center;
   letter-spacing: 0.1em;
 }
 
 #taskContainer .header #editTask:hover + .tooltiptext {
   visibility: visible;
+  cursor: pointer;
+}
+#editTask:hover,
+#deleteTask:hover,
+#checkTask:hover {
+  opacity: 0.5;
+  cursor: pointer;
+  transition: all ease-in-out 0.3s;
 }
 
 #taskContainer .header #deleteTask:hover + .tooltiptext {
@@ -358,10 +393,28 @@ input:focus {
 .right-sidebar #taskContainer .header #checkTask:hover + .tooltiptext:after {
   visibility: visible;
   content: 'Desfazer';
-  width: 60px;
-  background-color: black;
+  background: rgb(var(--primary-color));
+  color: rgb(var(--secondary-color));
+  font-style: italic;
   text-align: center;
-  padding: 2px 0;
+  padding: 2px 6px;
+  border-radius: 5px;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  text-align: center;
+  letter-spacing: 0.1em;
+}
+
+.right-sidebar #taskContainer .header #deleteTask:hover + .tooltiptext:after {
+  visibility: visible;
+  content: 'Apagar';
+  background: rgb(var(--primary-color));
+  color: rgb(var(--secondary-color));
+  font-style: italic;
+  text-align: center;
+  padding: 2px 6px;
   border-radius: 5px;
   position: absolute;
   z-index: 1;
@@ -373,10 +426,8 @@ input:focus {
 
 #taskContainer .footer .updateDesc #cancelUpdate:hover + .tooltiptext {
   visibility: visible;
-  opacity: 0.5;
 }
 
 #taskContainer .footer .updateDesc #saveUpdate:hover + .tooltiptext {
   visibility: visible;
-  opacity: 0.5;
 }

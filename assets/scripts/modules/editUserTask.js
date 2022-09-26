@@ -10,12 +10,12 @@ export const editUserTask = (e, token, event) => {
     const taskHeader = e.parentElement;
     const cancelUpdateBtn = e.parentElement.parentElement.childNodes[5].children[0].childNodes[1];
     const saveUpdateBtn = e.parentElement.parentElement.childNodes[5].children[0].childNodes[5];
+    const toolTip = e.parentElement.parentElement.childNodes[5].children[0].childNodes[9]
 
     // Pegar a tarefa no storage
     if (e.contains(event.target)) {
         getTask(token, id);
     };
-
     // Setar tempo para pegar a tarefa
     setTimeout(() => {
 
@@ -42,19 +42,19 @@ export const editUserTask = (e, token, event) => {
             cancelUpdateBtn.style.display = 'block';
             saveUpdateBtn.style.display = 'block';
 
-
             // Evento de key para registrar quando a tecla foi pressionada
             taskDesc.addEventListener('keydown', e => {
                 // Não permitir dar Enter ao editar a descrição
                 // Não permitir backspace e delete se a descrição tiver menos de 6 carácteres
                 if (e.key === 'Enter' || (e.key === 'Delete' && taskDesc.innerText.length <= 6)) {
                     e.preventDefault();
+
                 };
             });
 
             // Evento de key para registrar quando a tecla foi levantada
             taskDesc.addEventListener('keyup', () => {
-                
+
                 // Variável para texto da descrição atual na tarefa
                 let currentTextDesc = taskDesc.innerText;
 
@@ -77,12 +77,24 @@ export const editUserTask = (e, token, event) => {
                         (keycode > 218 && keycode < 223);   // [\]' 
 
                     // Não permitir dar Enter ao editar a descrição / máximo 96 carácteres
-                    if (taskDesc.innerText.length > 96 && printable) {
+                    if (taskDesc.innerText.length >= 96 && printable) {
+                        toolTip.style.display = '';
+                        toolTip.innerText = 'Máximo 96 carácteres';
+                        setTimeout(() => {
+                            toolTip.style.display = 'none';
+                        }, 4000);
+                        toolTip.style.display = 'block';
                         e.preventDefault();
                     };
 
                     // Não permitir backspace e delete se a descrição tiver menos de 6 carácteres
                     if (taskDesc.innerText.length <= 6 && (e.keyCode == 8 || e.keyCode == 46)) {
+                        toolTip.style.display = '';
+                        toolTip.innerText = 'Mínimo 6 carácteres';
+                        setTimeout(() => {
+                            toolTip.style.display = 'none';
+                        }, 4000);
+                        toolTip.style.display = 'block';
                         e.preventDefault();
                     };
 
@@ -94,16 +106,16 @@ export const editUserTask = (e, token, event) => {
 
             // Evento de clique no botão para salvar alteração na descrição da tarefa
             saveUpdateBtn.addEventListener('click', () => {
-                
+
                 //  Variável da descrição da tarefa selecionada no storage
                 let currentStorageDesc = userTaskObj.description;
-                
+
                 // Pegar a descrição da tarefa salvo no storage
                 let textDescStorage = sessionStorage.getItem('currentTextDesc');
-                
+
                 // Se a descrição da tarefa salva no storage for diferente da descrição da tarefa selecionada no storage
                 if (currentStorageDesc != textDescStorage) {
-                    
+
                     // Atualizar a descrição da tarefa selecionada no storage
                     userTaskObj.description = textDescStorage;
 
@@ -141,10 +153,6 @@ export const editUserTask = (e, token, event) => {
 
             // Voltar altura da descrição da tarefa original
             taskDesc.style.height = '150px';
-
-            // Pegar tarefa selecionada no storage
-            const userTask = sessionStorage.getItem('selectTask');
-            const userTaskObj = JSON.parse(userTask);
 
             // Se a tarefa sendo editada tiver alteração do texto, mas não for clicado no botão para salvar
             if (task.getAttribute('task-id') == userTaskObj.id) {
