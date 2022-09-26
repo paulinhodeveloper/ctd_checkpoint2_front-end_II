@@ -35,7 +35,6 @@ Assim, podemos criá-los com responsabilidades determinadas e utilizar em conjun
 A disposição das pastas e aquivos segue o padrão:
 
 :open_file_folder: ctd_checkpoint2_front-end_II
-- :page_facing_up: index.html
 :open_file_folder: assets
 - - :open_file_folder: images
 - - :open_file_folder: scripts
@@ -68,6 +67,7 @@ A disposição das pastas e aquivos segue o padrão:
 :open_file_folder: pages
 - :page_facing_up: signup.html
 - :page_facing_up: tasks.html
+- :page_facing_up: index.html
 
 
 Como dito acima, módulos são recursos muito úteis, uma vez que proporcionam qualidade e eficiência maior do código produzido, além de proporcionar agilidade no desenvolvimento de novas funcionalidades. Tudo isto devido a não ser necessário duplicar ou triplicar o mesmo bloco para utilizar em diferentes lugares. O módulo é apenas importado e todas as suas funcionalidades são adicionadas ao código que o importou.
@@ -143,10 +143,29 @@ Como dito acima, módulos são recursos muito úteis, uma vez que proporcionam q
 
 <div style="display:flex; flex-direction: column">
 
+<div class="row" style="display:flex; flex-direction: column">
+    <div class="developer1">
+    <img class="paulinho" src="https://github.com/paulinhodeveloper.png" alt="paulinho" />
+    <p>Paulo Henrique Santos Borges</p>
+</div>
+ 
+<div class="row" style="display:flex; flex-direction: column">
+    <div class="developer2">
+    <img class="paulinho" src="https://github.com/paulinhodeveloper.png" alt="paulinho" />
+    <p>Paulo Henrique Santos Borges</p>
+</div>
+ 
+<div class="row" style="display:flex; flex-direction: column">
+    <div class="developer3">
+    <img class="paulinho" src="https://github.com/paulinhodeveloper.png" alt="paulinho" />
+    <p>Paulo Henrique Santos Borges</p>
+</div>
+
 <a href="https://github.com/braulioportela79">
 <img src="https://github.com/braulioportela79.png" height="50px" style="border-radius: 50px">
 Braulio Portela
 </a>
+
 
 <a href="https://github.com/paulinhodeveloper">
 <img src="https://github.com/paulinhodeveloper.png" height="50px" 
