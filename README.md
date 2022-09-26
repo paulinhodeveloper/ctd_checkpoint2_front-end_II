@@ -141,42 +141,39 @@ Como dito acima, módulos são recursos muito úteis, uma vez que proporcionam q
 
 <h2 id="integrantes">✅ Integrantes do grupo ✅</h2>
 
-<div style="display:flex; flex-direction: column">
-
 <div class="row" style="display:flex; flex-direction: column">
     <div class="developer1">
-    <img class="braulio" src="https://github.com/braulioportela79" height="50px" style="border-radius: 50px alt="braulio" />
+    <img class="braulio" src="https://github.com/braulioportela79" height="50px" style="border-radius: 50px/>
     <p>Braulio Portela/p>
 </div>
  
 <div class="row" style="display:flex; flex-direction: column">
     <div class="developer2">
-    <img class="paulinho" src="https://github.com/paulinhodeveloper.png" height="50px" style="border-radius: 50px alt="paulinho" />
+    <img class="paulinho" src="https://github.com/paulinhodeveloper.png" height="50px" style="border-radius: 50px/>
     <p>Paulo Henrique Santos Borges</p>
 </div>
  
 <div class="row" style="display:flex; flex-direction: column">
     <div class="developer3">
-    <img class="Joao" src="https://github.com/jfamigo.png" height="50px" style="border-radius: 50px alt="Joao" />
+    <img class="Joao" src="https://github.com/jfamigo.png" height="50px" style="border-radius: 50px/>
     <p>João Francisco Gimenes</p>
 </div>
 
 <div class="row" style="display:flex; flex-direction: column">
     <div class="developer4">
-    <img class="anderson" src="https://github.com/Adersoncc.png" height="50px" style="border-radius: 50px alt="anderson" />
+    <img class="anderson" src="https://github.com/Adersoncc.png" height="50px" style="border-radius: 50px/>
     <p>Áderson Costa</p>
 </div>
 
 <div class="row" style="display:flex; flex-direction: column">
     <div class="developer5">
-    <img class="ivanaldo" src="https://github.com/jfamigo.png" height="50px" style="border-radius: 50px alt="ivanaldo" />
+    <img class="ivanaldo" src="https://github.com/IVANALDOSANTOS.png" height="50px" style="border-radius: 50px/>
     <p>Ivanaldo da Silva Santos</p>
 </div>
 
 <div class="row" style="display:flex; flex-direction: column">
     <div class="developer6">
-    <img class="jonathan" src="https://github.com/jfamigo.png" height="50px" style="border-radius: 50px alt="jonathan" />
+    <img class="jonathan" src="https://github.com/JPossoli.png" height="50px" style="border-radius: 50px/>
     <p>Jonathan A. Possoli</p>
 </div>
 
-</div>
