@@ -143,7 +143,7 @@ Como dito acima, módulos são recursos muito úteis, uma vez que proporcionam q
 
 <div class="row" style="display:flex; flex-direction: column">
     <div class="developer1">
-    <img class="braulio" src="https://github.com/braulioportela79" height="50px" style="border-radius: 50px/>
+    <img class="braulio" src="https://github.com/braulioportela79.png" height="50px" style="border-radius: 50px/>
     <p>Braulio Portela/p>
 </div>
  
@@ -155,7 +155,7 @@ Como dito acima, módulos são recursos muito úteis, uma vez que proporcionam q
  
 <div class="row" style="display:flex; flex-direction: column">
     <div class="developer3">
-    <img class="Joao" src="https://github.com/jfamigo.png" height="50px" style="border-radius: 50px/>
+    <img class="Joao" src="https://github.com/jfamigo.png" height="50px" style="border-radius: 50px />
     <p>João Francisco Gimenes</p>
 </div>
 
