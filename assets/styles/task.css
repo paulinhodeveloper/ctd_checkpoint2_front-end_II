@@ -46,8 +46,19 @@ main {
   border-right: 3px solid rgb(var(--primary-color));
 }
 
+.logo {
+  height: 100px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.logo img {
+  height: 80px;
+}
+
 .user-info {
-  border-top-left-radius: 15px;
+  /* border-top-left-radius: 15px; */
   background: linear-gradient(
     58deg,
     rgba(var(--primary-bg-color), 1) 20%,
@@ -60,6 +71,7 @@ main {
   justify-content: center;
   gap: 20px;
   min-height: 152px;
+  /* flex-direction: column; */
 }
 
 .user-picture svg {
@@ -88,17 +100,22 @@ main {
   cursor: pointer;
 }
 
+#logout:hover {
+  opacity: 0.5;
+  transition: all ease-in-out 0.2s;
+}
+
 #logout svg {
   width: 20px;
-  right: 6%;
-  top: 1%;
+  right: 12px;
+  top: 110px;
   position: absolute;
 }
 
 #logout p {
   position: absolute;
-  top: 30px;
-  right: 16px;
+  top: 130px;
+  right: 13px;
   color: rgb(var(--primary-color));
 }
 
@@ -129,9 +146,9 @@ nav a {
   justify-content: right;
   align-items: center;
   display: flex;
-  font-size: 1em;
+  font-size: 0.8em;
   font-weight: bold;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   padding-right: 10px;
   outline: 3px solid rgb(var(--secondary-bg-color));
@@ -160,7 +177,7 @@ nav a {
   justify-content: center;
 }
 
-#addTaskValidation span{
+#addTaskValidation span {
   display: none;
   font-size: 0.7em;
   padding-bottom: 5px;

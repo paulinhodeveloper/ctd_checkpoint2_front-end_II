@@ -1,3 +1,10 @@
+:root {
+  --primary-color: 12, 69, 99;
+  --secondary-color: 190, 211, 223;
+  --primary-bg-color: 29, 147, 209;
+  --secondary-bg-color: 10, 116, 173;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -10,6 +17,7 @@ body {
     sans-serif;
   min-height: 100vh;
   overflow: hidden;
+  background: rgb(var(--secondary-color));
 }
 
 main {
@@ -27,30 +35,31 @@ main {
   flex-direction: column;
   border-radius: 20px;
   background-color: #fff;
-  box-shadow: 0 0 2px rgba(15, 15, 15, 0.7);
+  /* box-shadow: 0 0 2px rgba(15, 15, 15, 0.7); */
+  box-shadow: 0px 0px 10px 2px rgba(var(--primary-color), 0.5);
   position: relative;
   overflow: hidden;
 }
 
 .container-header {
   width: 100%;
-  height: 250px;
+  /* height: 250px; */
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   padding: 0 1.8em;
-  padding-bottom: 5em;
+  padding-bottom: 10px;
 }
 
 .container-header-bg {
   width: 160%;
-  height: 550px;
+  height: 490px;
   position: absolute;
   display: flex;
   flex-direction: column;
   border-radius: 50%;
-  transform: rotate(60deg);
-  top: -290px;
+  transform: rotate(230deg);
+  top: -340px;
   left: -70px;
   background: rgb(29, 147, 209);
   background: linear-gradient(
@@ -64,15 +73,27 @@ main {
   width: 100%;
   display: flex;
   flex-direction: column;
+  margin-top: 15px;
 }
 
 .container-header-content h2 {
   font-size: 30px;
   font-weight: 600;
-  line-height: 1.24;
+  line-height: 1em;
   color: #fff;
   z-index: 10;
   margin: 0;
+}
+
+/* .container-header-content h2:first-child{
+  align-items: center;
+  justify-content: center;
+  display: flex;
+
+} */
+
+main img {
+  height: 180px;
 }
 
 .container-header-content h5 {
@@ -81,7 +102,7 @@ main {
   font-size: 11px;
   z-index: 10;
   margin: 0;
-  margin-top: 7px;
+  /* margin-top: 37px; */
 }
 
 .container-content {
@@ -96,7 +117,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 10px;
+  margin-top: 25px;
 }
 
 .error {
@@ -161,7 +182,7 @@ form {
     rgba(29, 147, 209, 1) 20%,
     rgba(10, 116, 173, 1) 100%
   );
-  margin-top: 1em;
+  /* margin-top: 1em; */
 }
 
 .submit-button:hover {
