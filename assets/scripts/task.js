@@ -37,7 +37,7 @@ onload = () => {
   getTasks(token);
 
   if (!token) {
-    location.href = "/index.html";
+    location.href = "../index.html";
   };
 };
 
@@ -87,5 +87,5 @@ logoutBtn.addEventListener('click', e => {
   sessionStorage.removeItem('selectTask');
   sessionStorage.removeItem('userTasks');
   sessionStorage.removeItem('currentTextDesc');
-  location.href = '/index.html';
+  location.href = '../index.html';
 });
