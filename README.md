@@ -34,7 +34,7 @@ Assim, podemos criá-los com responsabilidades determinadas e utilizar em conjun
 
 A disposição das pastas e aquivos segue o padrão:
 
-:open_file_folder: Checkpoint_2-Frontend_2
+:open_file_folder: ctd_checkpoint2_front-end_II
 - :page_facing_up: index.html
 :open_file_folder: assets
 - - :open_file_folder: images
