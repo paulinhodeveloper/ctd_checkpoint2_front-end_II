@@ -94,7 +94,7 @@ main {
 } */
 
 main img {
-  max-height: 24vh;
+  max-height: 180px;
 }
 
 .container-header-content h5 {
