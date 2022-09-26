@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Done</title>
+    <script src="./assets/scripts/signin.js" defer type="module"></script>
+    <link rel="stylesheet" href="./assets/styles/sign.css" />
+  </head>
+  <body>
+    <main>
+      <h2><img src="./assets/images/taskdone_logo.png" alt=""></h2>
+      <div class="container">
+        <div class="container-header">
+          <div class="container-header-bg"></div>
+          <div class="container-header-content">
+            
+            <h2>Seja</h2>
+            <h2>Bem-Vindo</h2>
+            <h5>Fazer login para continuar</h5>
+          </div>
+        </div>
+        <div class="container-content">
+          <div class="container-content-wrapper">
+            <div class="error"></div>
+            <form>
+              <div class="input-wrapper">
+                <input
+                  type="text"
+                  placeholder="E-mail"
+                  class="form-input"
+                  id="inputEmail"
+                  required
+                /><span
+                  class="input-validation"
+                  id="inputEmail-validation"
+                ></span>
+              </div>
+              <div class="input-wrapper">
+                <input
+                  type="password"
+                  placeholder="Senha"
+                  class="form-input"
+                  id="inputPassword"
+                  required
+                /><span
+                  class="input-validation"
+                  id="inputPassword-validation"
+                ></span>
+              </div>
+              <button type="submit" class="submit-button" disabled>
+                Acessar
+              </button>
+            </form>
+            <p class="create-acc">
+              Não possui uma conta?
+              <a href="./pages/signup.html" class="create-acc-link"
+                >Cadastrar
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+    <div class="spinner"></div>
+  </body>
+</html>

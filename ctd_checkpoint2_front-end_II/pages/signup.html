@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Done</title>
+    <script src="../assets/scripts/signup.js" defer type="module"></script>
+    <link rel="stylesheet" href="../assets/styles/sign.css" />
+  </head>
+  <body>
+    <main>
+      <h2><img src="../assets/images/taskdone_logo.png" alt=""></h2>
+      <div class="container">
+        <div class="container-header">
+          <div class="container-header-bg"></div>
+          <div class="container-header-content">
+            <h2>Crie</h2>
+            <h2>sua conta</h2>
+            <h5>Cadastre-se para continuar</h5>
+          </div>
+        </div>
+        <div class="container-content">
+          <div class="container-content-wrapper">
+            <div class="error"></div>
+            <form>
+              <div class="input-wrapper">
+                <input
+                  type="text"
+                  placeholder="Nome"
+                  class="form-input"
+                  id="inputFirstName"
+                  required
+                /><span
+                  class="input-validation"
+                  id="inputFirstName-validation"
+                ></span>
+              </div>
+              <div class="input-wrapper">
+                <input
+                  type="text"
+                  placeholder="Sobrenome"
+                  class="form-input"
+                  id="inputLastName"
+                  required
+                /><span
+                  class="input-validation"
+                  id="inputLastName-validation"
+                ></span>
+              </div>
+              <div class="input-wrapper">
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="E-mail"
+                  class="form-input"
+                  id="inputEmail"
+                  required
+                /><span
+                  class="input-validation"
+                  id="inputEmail-validation"
+                ></span>
+              </div>
+              <div class="input-wrapper">
+                <input
+                  type="password"
+                  placeholder="Senha"
+                  class="form-input"
+                  id="inputPassword"
+                  required
+                /><span
+                  class="input-validation"
+                  id="inputPassword-validation"
+                ></span>
+              </div>
+              <div class="input-wrapper">
+                <input
+                  type="password"
+                  placeholder="Repetir Senha"
+                  class="form-input"
+                  id="inputConfirmPassword"
+                  required
+                /><span
+                  class="input-validation"
+                  id="inputConfirmPassword-validation"
+                ></span>
+              </div>
+              <button type="submit" class="submit-button" disabled>
+                Cadastrar
+              </button>
+            </form>
+            <p class="create-acc">
+              Já possui uma conta?
+              <a href="../index.html" class="create-acc-link">Acessar </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+    <div class="spinner"></div>
+  </body>
+</html>
