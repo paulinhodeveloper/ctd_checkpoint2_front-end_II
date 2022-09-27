@@ -18,6 +18,8 @@ const observer = new MutationObserver(() => {
     if (document.contains(userName)) {
         const userData = sessionStorage.getItem('user');
         const userObj = JSON.parse(userData);
+        userName.style.backgroundImage = 'none';
+
         userName.innerText = `${userObj.firstName} ${userObj.lastName}`;
         observer.disconnect();
     };

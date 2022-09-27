@@ -39,6 +39,8 @@ export const renderUserTasks = token => {
     task.setAttribute('id', 'taskContainer');
     task.setAttribute('task-id', `${taskItem.id}`);
 
+    task.setAttribute('draggable', true);
+
     // Invocar funções para estilos aleatórios
     task.style.transform = rotate();
     task.style.margin = margin();
@@ -64,6 +66,8 @@ export const renderUserTasks = token => {
     // Estilizar cabeçalho da tarefa concluída/não concluída
     taskHeader.forEach(e => e.style.width = '28%');
     taskHeaderSVG.forEach(e => e.style.display = 'none');
+
+
   });
 
   // Variável Botão Apagar Tarefas
