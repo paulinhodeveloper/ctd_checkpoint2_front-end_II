@@ -90,10 +90,44 @@ main {
   font-size: 0.75em;
   font-weight: bold;
   background: rgb(var(--primary-color));
-  padding: 0.3em 1em;
+  padding: 0.9em 5em;
+  background-image: linear-gradient(
+    to right,
+    rgb(var(--primary-bg-color)),
+    rgb(var(--secondary-bg-color))
+  );
+  background-size: 200% 100%;
   border-radius: 10px;
   word-break: break-word;
+  animation: anmBg 1s linear 3;
+  
+  -webkit-animation: anmBg 1s linear 3;
 }
+
+
+.placeholder {
+  color: #0000;
+  opacity: 0.5;
+  background-image: linear-gradient(
+    to right,
+    rgb(var(--primary-bg-color)),
+    rgb(var(--secondary-bg-color))
+  );
+  background-size: 200% 100%;
+  animation: anmBg 1s linear 3;
+  -webkit-animation: anmBg 1s linear 3;
+  width: 200px;
+  height: 200px;
+  box-shadow: 0px 10px 24px 5px rgb(var(--primary-color));
+  color: rgb(var(--primary-color));
+}
+
+@keyframes anmBg {
+  to {
+    background-position: -170% 0;
+  }
+}
+
 
 #logout {
   font-size: 0.7em;
@@ -447,4 +481,27 @@ input:focus {
 
 #taskContainer .footer .updateDesc #saveUpdate:hover + .tooltiptext {
   visibility: visible;
+}
+
+.placeholder {
+  color: #0000;
+  opacity: 0.5;
+  background-image: linear-gradient(
+    to right,
+    rgb(var(--primary-bg-color)),
+    rgb(var(--secondary-bg-color))
+  );
+  background-size: 200% 100%;
+  animation: anmBg 1s linear 3;
+  -webkit-animation: anmBg 1s linear 3;
+  width: 200px;
+  height: 200px;
+  box-shadow: 0px 10px 24px 5px rgb(var(--primary-color));
+  color: rgb(var(--primary-color));
+}
+
+@keyframes anmBg {
+  to {
+    background-position: -170% 0;
+  }
 }

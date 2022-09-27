@@ -9,6 +9,7 @@ const userName = gi('userLogin');
 export const renderUserInfo = data => {
     userDataJson = JSON.stringify(data);
     sessionStorage.setItem('user', userDataJson);
+    userName.style.padding = '0.3em 1em'
     userName.innerText = ' ';
 };
 
@@ -17,6 +18,8 @@ const observer = new MutationObserver(() => {
     if (document.contains(userName)) {
         const userData = sessionStorage.getItem('user');
         const userObj = JSON.parse(userData);
+        userName.style.backgroundImage = 'none';
+
         userName.innerText = `${userObj.firstName} ${userObj.lastName}`;
         observer.disconnect();
     };
