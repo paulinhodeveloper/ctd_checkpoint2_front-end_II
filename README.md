@@ -65,6 +65,7 @@ A disposição das pastas e aquivos segue o padrão:
 - - :open_file_folder: styles
 - - - :page_facing_up: sign.css
 - - - :page_facing_up: tasks.css
+
 :open_file_folder: pages
 - :page_facing_up: signup.html
 - :page_facing_up: tasks.html
@@ -139,7 +140,7 @@ Como dito acima, módulos são recursos muito úteis, uma vez que proporcionam q
 
 
 
-<h2 id="integrantes">✅ Integrantes do grupo ✅</h2>
+<h2 id="integrantes">✅Integrantes do grupo ✅</h2>
 
 
 <a href="https://github.com/braulioportela79">
