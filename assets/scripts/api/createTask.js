@@ -13,7 +13,23 @@ export const createTask = (token, task) => {
   };
 
   fetch(`${baseUrl}/tasks`, request)
-    .then(result => { return result.json(); })
+    .then(result => {
+      if (result.status === 200 || result.status === 201) {
+        return result.json();
+      } else {
+        throw result;
+      };
+    })
     .then(() => getTasks(token))
-    .catch(err => console.log(err));
+    .catch(err => {
+      if (err.status === 400) {
+        alert('Dados incompletos!');
+      } else if (err.status === 401) {
+        alert('Erro ao validar usuário. Por favor, logar novamente!');
+        location.href = '../index.html';
+      } else if (err.status === 500) {
+        alert('Erro ao conectar com o servidor. Por favor, tente novamente mais tarde!');
+        location.href = '../index.html';
+      };
+    });
 };
