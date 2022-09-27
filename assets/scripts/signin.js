@@ -41,6 +41,8 @@ submitBtn.addEventListener('click', e => {
     userSignIn.password = inputPassword.value;
     userSignInJson = JSON.stringify(userSignIn);
     signInUser(userSignInJson);
-    form.reset();
-    checkFormValidity();
+    inputPassword.value = '';
+    setTimeout(() => {
+        checkFormValidity();
+    }, 200);
 });

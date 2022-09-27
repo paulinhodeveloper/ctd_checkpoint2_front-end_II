@@ -6,8 +6,13 @@ const qs = e => document.querySelector(e);
 // Variável campo Validação Erro Login
 const errorValidation = qs('.error');
 
+const submitBtnTxt = qs('.submit-button span');
+const submitLoadSpinner = qs('.submit-button .loader');
+
 //Requisição API Login Usuário
 export const signInUser = user => {
+    submitBtnTxt.style.display = 'none';
+    submitLoadSpinner.style.display = 'block';
     const request = {
         method: "POST",
         headers: {
@@ -36,9 +41,12 @@ const successSignin = result => {
 
 // Função Login com Erro
 const errorSignin = err => {
-    if (err.status === 400 || err.status === 404)
+    if (err.status === 400 || err.status === 404) {
         errorValidation.innerText = 'Usuário/Senha Incorreto!';
-    setTimeout(() => {
-        errorValidation.innerText = '';
-    }, 5000)
+        submitLoadSpinner.style.display = 'none';
+        submitBtnTxt.style.display = '';
+        setTimeout(() => {
+            errorValidation.innerText = '';
+        }, 3000);
+    };
 };
