@@ -9,6 +9,7 @@ const userName = gi('userLogin');
 export const renderUserInfo = data => {
     userDataJson = JSON.stringify(data);
     sessionStorage.setItem('user', userDataJson);
+    userName.style.padding = '0.3em 1em'
     userName.innerText = ' ';
 };
 

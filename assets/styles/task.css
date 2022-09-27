@@ -90,7 +90,7 @@ main {
   font-size: 0.75em;
   font-weight: bold;
   background: rgb(var(--primary-color));
-  padding: 0.3em 1em;
+  /* padding: 0.3em 1em; */
   border-radius: 10px;
   word-break: break-word;
 }
