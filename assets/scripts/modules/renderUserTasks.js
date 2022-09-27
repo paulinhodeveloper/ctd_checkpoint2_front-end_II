@@ -55,7 +55,8 @@ export const renderUserTasks = token => {
     // Montar a tarefa (Invocando a função)
     task.innerHTML = '';
     task.innerHTML = taskHTML(taskItem, newDate);
-  
+
+
     // Variáveis do cabeçalho das tarefas
     const taskHeader = qsa('.right-sidebar #taskContainer .header');
     const taskHeaderSVG = qsa('.right-sidebar #taskContainer .header svg:first-child');

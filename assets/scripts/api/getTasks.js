@@ -1,4 +1,5 @@
 import { renderUserTasks } from '../modules/renderUserTasks.js';
+import { skeleton } from '../modules/skeleton.js';
 
 import { baseUrl } from './baseUrl.js';
 
@@ -7,6 +8,9 @@ let userTasksJson = "";
 
 // Função para mostrar as tarefas do usuário
 export const getTasks = token => {
+
+    skeleton();
+
     const request = {
         method: "GET",
         headers: {
