@@ -36,6 +36,7 @@ A disposição das pastas e aquivos segue o padrão:
 
 :open_file_folder: ctd_checkpoint2_front-end_II
 - :page_facing_up: index.html
+
 :open_file_folder: assets
 - - :open_file_folder: images
 - - :open_file_folder: scripts
@@ -44,7 +45,7 @@ A disposição das pastas e aquivos segue o padrão:
 - - :page_facing_up: task.js
 - - - :open_file_folder: api
 - - - - :page_facing_up: baseUrl.js
-- - - - :page_facing_up :createTask.js
+- - - - :page_facing_up: createTask.js
 - - - - :page_facing_up: deleteTask.js
 - - - - :page_facing_up: getTask.js
 - - - - :page_facing_up: getTasks.js
@@ -145,7 +146,7 @@ Como dito acima, módulos são recursos muito úteis, uma vez que proporcionam q
 
 <a href="https://github.com/braulioportela79">
 <img src="https://github.com/braulioportela79.png" height="50px" style="border-radius: 50px">
-Braulio Portela
+Braulio Portela (developer)
 </a>
 
 <br>
@@ -153,14 +154,14 @@ Braulio Portela
 <a href="https://github.com/paulinhodeveloper">
 <img src="https://github.com/paulinhodeveloper.png" height="50px" 
 style="border-radius: 50px"> 
-Paulo Henrique Santos Borges
+Paulo Henrique Santos Borges (developer)
 </a>
 
 <br>
 
 <a href="https://github.com/jfamigo">
 <img src="https://github.com/jfamigo.png" height="50px" style="border-radius: 50px"> 
-João Francisco Gimenes
+João Francisco Gimenes (developer)
 </a>
 
 <br>
@@ -168,19 +169,19 @@ João Francisco Gimenes
 <a href="https://github.com/Adersoncc">
 <img src="https://github.com/Adersoncc.png" height="50px" 
 style="border-radius: 50px"> 
-Áderson Costa
+Áderson Costa (Tester)
 </a>
 
 <br>
 
 <a href="https://github.com/IVANALDOSANTOS">
 <img src="https://github.com/IVANALDOSANTOS.png" height="50px" style="border-radius: 50px"> 
-Ivanaldo da Silva Santos
+Ivanaldo da Silva Santos (Tester)
 </a>
 
 <br>
 
 <a href="https://github.com/JPossoli">
 <img src="https://github.com/JPossoli.png" height="50px" style="border-radius: 50px"> 
-Jonathan A. Possoli
+Jonathan A. Possoli (Tester)
 </a>
