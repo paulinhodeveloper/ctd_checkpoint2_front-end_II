@@ -55,10 +55,11 @@ export const dragDropUserTask = (token) => {
 
         e.currentTarget.removeAttribute('class', 'dragHoverTaskBoard');
 
-        const taskBoardName = e.target.parentElement.className;
+        const taskTo = e.target.parentElement.className;
         const taskDragging = qs('.dragging');
         const taskCheckBtn = taskDragging.children[0].children[4]
-        if (taskBoardName != taskDragging.parentElement.parentElement.className) {
+        const taskFrom = taskDragging.parentElement.parentElement.className;
+        if (taskTo == 'container' && taskFrom == 'right-sidebar') {
             checkUserTask(taskCheckBtn, token);
         };
     };
@@ -88,10 +89,11 @@ export const dragDropUserTask = (token) => {
     // Função quando tarefa é solta no Quadro de Tarefas Concluídas
     const dropToTaskBoardDone = e => {
         e.currentTarget.removeAttribute('class', 'dragHoverTaskBoardDone');
-        const taskBoardName = e.target.parentElement.className;
+        const taskTo = e.target.parentElement.className;
         const taskDragging = qs('.dragging');
         const taskCheckBtn = taskDragging.children[0].children[4]
-        if (taskBoardName != taskDragging.parentElement.parentElement.className) {
+        const taskFrom = taskDragging.parentElement.parentElement.className;
+        if (taskTo == 'right-sidebar' && taskFrom == 'container') {
             checkUserTask(taskCheckBtn, token);
         };
     };
