@@ -20,9 +20,13 @@ export const checkUserTask = (e, token) => {
         userTaskObj.completed ? userTaskObj.completed = false : userTaskObj.completed = true;
 
         // Atualizar a tarefa na API
-        let userTaskJson = JSON.stringify(userTaskObj);
-        sessionStorage.setItem('selectTask', userTaskJson);
-        updateTask(token, id, userTaskJson);
+        setTimeout(() => {
+            let userTaskJson = JSON.stringify(userTaskObj);
+            sessionStorage.setItem('selectTask', userTaskJson);
+            setTimeout(() => {
+                updateTask(token, id, userTaskJson);
+            }, 400);
+        }, 400);
 
         // Atualizar a lista de tarefas no storage
         let updatedTask = userTaskObj;
@@ -37,5 +41,5 @@ export const checkUserTask = (e, token) => {
 
         // Reinderizar as tarefas
         renderUserTasks(token);
-    }, 500);
+    }, 1000);
 }

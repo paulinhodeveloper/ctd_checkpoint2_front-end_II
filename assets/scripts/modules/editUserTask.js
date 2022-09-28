@@ -26,8 +26,13 @@ export const editUserTask = (e, token, event) => {
         // Evento de Clique para editar a tarefa (ao clicar no botão / ao clicar na descrição da tarefa)
         if (e.contains(event.target) || (event.target.id == 'descrip' && document.activeElement == taskDesc)) {
 
+
             // Habilitar editar texto na própria descrição da tarefa
             taskDesc.setAttribute('contentEditable', true);
+
+            // Desabilitar arrastar tarefa enquanto edita
+            task.setAttribute('draggable', false);
+            task.style.cursor = '';
 
             // Focar o prompt na descrição da tarefa para editar
             taskDesc.focus();
@@ -143,6 +148,10 @@ export const editUserTask = (e, token, event) => {
 
             // Desabilitar edição da tarefa
             taskDesc.setAttribute('contentEditable', false);
+
+            // Habilitar arrastar tarefa quando não edita
+            task.setAttribute('draggable', true);
+            task.style.cursor = 'grab';
 
             // Esconder botões para salvar/cancelar edição da tarefa
             saveUpdateBtn.style.display = 'none';

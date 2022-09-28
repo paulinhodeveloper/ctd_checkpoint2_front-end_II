@@ -105,6 +105,21 @@ main {
 }
 
 
+.dragging{
+  opacity: 0.5;
+}
+
+.dragHoverTaskBoardDone{
+  /* opacity: 0.3; */
+  background-color: rgba(var(--secondary-bg-color), 0.5);
+}
+
+
+.dragHoverTaskBoard{
+  /* opacity: 0.3; */
+  background-color: rgba(var(--primary-bg-color), 0.5);
+}
+
 .placeholder {
   color: #0000;
   opacity: 0.5;
