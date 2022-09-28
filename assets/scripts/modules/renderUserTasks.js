@@ -1,4 +1,5 @@
 import { color, rotate, margin } from './randomTaskStyle.js';
+import { dragDropUserTask } from './dragDropUserTask.js';
 import { deleteUserTask } from './deleteUserTask.js';
 import { checkUserTask } from './checkUserTask.js';
 import { editUserTask } from './editUserTask.js';
@@ -38,8 +39,11 @@ export const renderUserTasks = token => {
     // Setar o ID das tarefas
     task.setAttribute('id', 'taskContainer');
     task.setAttribute('task-id', `${taskItem.id}`);
+    task.setAttribute('draggable', true)
 
-    task.setAttribute('draggable', true);
+    if (task.getAttribute('draggable')) {
+      task.style.cursor = 'grab';
+    }
 
     // Invocar funções para estilos aleatórios
     task.style.transform = rotate();
@@ -58,7 +62,6 @@ export const renderUserTasks = token => {
     task.innerHTML = '';
     task.innerHTML = taskHTML(taskItem, newDate);
 
-
     // Variáveis do cabeçalho das tarefas
     const taskHeader = qsa('.right-sidebar #taskContainer .header');
     const taskHeaderSVG = qsa('.right-sidebar #taskContainer .header svg:first-child');
@@ -66,9 +69,10 @@ export const renderUserTasks = token => {
     // Estilizar cabeçalho da tarefa concluída/não concluída
     taskHeader.forEach(e => e.style.width = '28%');
     taskHeaderSVG.forEach(e => e.style.display = 'none');
-
-
   });
+
+  // Invocando Função Drag and Drop
+  dragDropUserTask(token);
 
   // Variável Botão Apagar Tarefas
   const deleteTaskBtn = qsa('#deleteTask');
@@ -88,7 +92,7 @@ export const renderUserTasks = token => {
   // Função de Clique para Marcar/Desmarcar Tarefa Feita
   checkTaskBtn.forEach(e => {
     e.addEventListener('click', () => {
-
+      // console.log(e)
       // Invocando função para concluir tarefa
       checkUserTask(e, token);
     });
