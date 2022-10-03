@@ -58,7 +58,6 @@ main {
 }
 
 .user-info {
-  /* border-top-left-radius: 15px; */
   background: linear-gradient(
     58deg,
     rgba(var(--primary-bg-color), 1) 20%,
@@ -71,7 +70,6 @@ main {
   justify-content: center;
   gap: 20px;
   min-height: 152px;
-  /* flex-direction: column; */
 }
 
 .user-picture svg {
@@ -110,13 +108,11 @@ main {
 }
 
 .dragHoverTaskBoardDone{
-  /* opacity: 0.3; */
   background-color: rgba(var(--secondary-bg-color), 0.5);
 }
 
 
 .dragHoverTaskBoard{
-  /* opacity: 0.3; */
   background-color: rgba(var(--primary-bg-color), 0.5);
 }
 
@@ -210,7 +206,6 @@ nav a {
     rgba(var(--secondary-bg-color), 1) 100%
   );
   width: 100%;
-  /* height: 270px; */
   bottom: 0;
   position: absolute;
   border-bottom-left-radius: 15px;
@@ -394,7 +389,6 @@ input:focus {
 
 #taskContainer .updateDesc {
   padding-left: 8px;
-  /* gap: 5px; */
   display: flex;
   justify-content: space-between;
 }
